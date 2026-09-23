@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDCAT Merit Calculator 2026 | PMDC MBBS BDS Aggregate</title>
+  <meta name="description" content="Calculate your official PM&DC MDCAT medical and dental college admission merit. Instant aggregate percentage using Matric (10%), FSc (40%), and MDCAT (50%).">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="brand">
+        <span>PakStudentTools</span>
+        <span class="brand-badge">Free</span>
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../matric-fsc-aggregate/index.html">Matric/FSc Aggregate</a>
+        <a href="index.html" class="active">MDCAT Merit</a>
+        <a href="../ecat-merit/index.html">ECAT Merit</a>
+        <a href="../uaf-merit/index.html">UAF Merit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../index.html#calculators">Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>MDCAT Merit</span>
+      </nav>
+
+      <!-- Calculator Card -->
+      <div class="calculator-card">
+        <div class="calculator-header">
+          <h1 class="calculator-title">MDCAT Merit Calculator</h1>
+          <p class="calculator-subtitle">
+            Calculate your official PM&amp;DC admission aggregate for public and private MBBS &amp; BDS colleges in Pakistan.
+          </p>
+          <div class="weights-badge-bar">
+            <span>Official PM&amp;DC Weights:</span>
+            <span class="weight-badge">Matric: 10%</span>
+            <span class="weight-badge">FSc Pre-Medical: 40%</span>
+            <span class="weight-badge">MDCAT: 50% (out of 180)</span>
+          </div>
+        </div>
+
+        <!-- Calculator Form -->
+        <form id="mdcat-form" novalidate>
+          
+          <!-- Section 1: Matriculation -->
+          <div class="form-section">
+            <h2 class="form-section-title">1. Matriculation (SSC) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="matric-obtained" class="form-label">Matric Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 1020" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="matric-total" class="form-label">Matric Total Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-total" 
+                  class="form-input" 
+                  placeholder="e.g. 1100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: FSc Pre-Medical -->
+          <div class="form-section">
+            <h2 class="form-section-title">2. FSc Pre-Medical (HSSC) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fsc-obtained" class="form-label">FSc Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 980" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="fsc-total" class="form-label">FSc Total Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc-total" 
+                  class="form-input" 
+                  placeholder="e.g. 1100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: MDCAT Test Score -->
+          <div class="form-section">
+            <h2 class="form-section-title">3. MDCAT Entrance Test Score</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="mdcat-obtained" class="form-label">MDCAT Obtained Score (out of 180)</label>
+                <input 
+                  type="number" 
+                  id="mdcat-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 155" 
+                  min="0" 
+                  max="180"
+                  step="any"
+                  required
+                >
+                <span id="error-mdcat-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">MDCAT Total Test Denominator</label>
+                <input 
+                  type="text" 
+                  class="form-input" 
+                  value="180 Marks (Fixed by PM&amp;DC)" 
+                  readonly 
+                  tabindex="-1"
+                  style="background-color: var(--color-bg-body); cursor: default; color: var(--color-text-muted);"
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="calculate-btn">Calculate Merit</button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">Reset</button>
+          </div>
+
+        </form>
+
+        <!-- Result Box (Hidden until calculated) -->
+        <div id="result-box" class="result-box" aria-live="polite">
+          <div class="result-header">Your Composite MDCAT Medical Merit</div>
+          <div class="result-value" id="merit-result">0.00%</div>
+          
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Matric Contribution (10%)</div>
+              <div class="breakdown-item-value" id="breakdown-matric">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-matric-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">FSc Contribution (40%)</div>
+              <div class="breakdown-item-value" id="breakdown-fsc">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-fsc-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">MDCAT Contribution (50%)</div>
+              <div class="breakdown-item-value" id="breakdown-mdcat">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-mdcat-detail">0.00% score</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
+      <section class="explainer-card">
+        <h2>Understanding the PM&amp;DC MDCAT Merit Formula</h2>
+        
+        <p>
+          The MDCAT Merit Calculator is designed for aspiring medical and dental students seeking admission to public and private sector MBBS and BDS programs across Pakistan. Admissions are governed by the Pakistan Medical and Dental Council (PM&amp;DC) and executed provincially by examining authorities including the University of Health Sciences (UHS) in Punjab, Dow University of Health Sciences (DUHS) in Sindh, Khyber Medical University (KMU) in KPK, Bolan University of Medical &amp; Health Sciences (BUMHS) in Balochistan, and SZABMU in Islamabad.
+        </p>
+
+        <div class="formula-display">
+          Aggregate (%) = (Matric Obt ÷ Total × 10) + (FSc Obt ÷ Total × 40) + (MDCAT Obt ÷ 180 × 50)
+        </div>
+
+        <p>
+          The official PM&amp;DC merit formula combines your academic history and entrance test achievement into a single composite percentage. Because the standard national MDCAT examination comprises 180 total marks, your score is calculated directly against this 180-mark base and weighted to represent 50% of your total admission aggregate.
+        </p>
+
+        <p>
+          <strong>Note on NUMS Admissions:</strong> The National University of Medical Sciences (NUMS) also follows the identical 10% Matric, 40% FSc, and 50% entry test formula for Army Medical College (AMC) and affiliated military institutions. However, the NUMS entry test is scored out of 200 marks rather than 180. Consequently, NUMS merit scores must be computed separately using their 200-mark denominator and are not directly interchangeable with provincial PM&amp;DC MDCAT scores.
+        </p>
+      </section>
+
+      <!-- Responsive Ad Unit Placeholder -->
+      <aside class="ad-slot-placeholder" aria-label="Advertisement Placeholder">
+        <span>Advertisement Placement (Configured for future AdSense / Ad Unit integration)</span>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p>&copy; <span id="current-year">2026</span> PakStudentTools. All rights reserved.</p>
+          <p class="footer-disclaimer">
+            Formulas and criteria follow current official Pakistani board (BISE), PMDC, and HEC guidelines. Always cross-check with official admission prospectus notices.
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#contact">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="calculator.js" defer></script>
+</body>
+</html>

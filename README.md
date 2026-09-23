@@ -73,6 +73,26 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   };
   ```
 
+### 2. MDCAT Merit Calculator (`/calculators/mdcat-merit/`)
+- **Purpose:** Computes a student's official PM&DC medical and dental admission aggregate (MBBS & BDS) across public and private colleges in Pakistan (UHS, DUHS, KMU, BUMHS, SZABMU).
+- **Formula Used:**
+  $$\text{Aggregate } (\%) = \left(\frac{\text{Matric Obtained}}{\text{Matric Total}} \times 10\right) + \left(\frac{\text{FSc Obtained}}{\text{FSc Total}} \times 40\right) + \left(\frac{\text{MDCAT Obtained}}{180} \times 50\right)$$
+- **Default Weightages & Denominator:**
+  - Matriculation (SSC): **10%**
+  - FSc Pre-Medical (HSSC): **40%**
+  - MDCAT Entrance Test: **50%** (calculated out of a fixed denominator of **180 marks**)
+- **Where to Adjust Weighting or Test Total:**
+  To change weights or adjust the total test marks, edit the `MDCAT_CONFIG` object at the top of [`calculators/mdcat-merit/calculator.js`](calculators/mdcat-merit/calculator.js#L18-L23):
+  ```javascript
+  const MDCAT_CONFIG = {
+    matricWeight: 10,     // Edit Matric weight here
+    fscWeight: 40,        // Edit FSc Pre-Medical weight here
+    mdcatWeight: 50,      // Edit MDCAT test weight here
+    mdcatTotal: 180       // Edit MDCAT total test denominator here
+  };
+  ```
+- **NUMS Context:** Note that while NUMS also applies a 10/40/50 formula, its entrance test denominator is out of 200 rather than 180, so results are computed separately.
+
 ## How to Run Locally
 Because this project is built entirely with static files, no build process or package installation is required.
 
@@ -116,8 +136,15 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Built interactive validation preventing calculation on non-numbers, negative values, missing fields, or obtained > total.
   - Live result rendering formatted to 2 decimal places with visual component breakdown.
   - Added ~185-word SEO explainer section and search meta tags.
+  - Replaced root-relative links with portable relative links for direct `file:///` and HTTP server support.
+- **Step 4 (MDCAT Merit Calculator):** **DONE**
+  - Built standalone calculator page at `/calculators/mdcat-merit/index.html`.
+  - Implemented official PM&DC formula: 10% Matric + 40% FSc Pre-Medical + 50% MDCAT (out of 180).
+  - Configurable weightings and test denominator in `calculator.js`.
+  - Built validation preventing scores > 180, negative values, non-numbers, or obtained > total.
+  - Live result rendering with 2 decimal places and component breakdown display.
+  - Added ~184-word SEO explainer section covering PM&DC criteria, provincial authorities, and NUMS test distinction.
 - **Not Built Yet:**
-  - MDCAT Merit Calculator (`/calculators/mdcat-merit/`)
   - ECAT Merit Calculator (`/calculators/ecat-merit/`)
   - UAF Merit Calculator (`/calculators/uaf-merit/`)
   - Live ad network publisher script integration (e.g., Google AdSense).
