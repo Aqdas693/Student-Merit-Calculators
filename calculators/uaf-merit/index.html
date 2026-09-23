@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAF Merit Calculator 2026 | University of Agriculture Faisalabad Aggregate</title>
+  <meta name="description" content="Calculate your University of Agriculture Faisalabad (UAF) admission merit aggregate. Official formula: Matric (30%), Intermediate Part-I (30%), and UAF Entry Test (40%).">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="brand">
+        <span>PakStudentTools</span>
+        <span class="brand-badge">Free</span>
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../matric-fsc-aggregate/index.html">Matric/FSc Aggregate</a>
+        <a href="../mdcat-merit/index.html">MDCAT Merit</a>
+        <a href="../ecat-merit/index.html">ECAT Merit</a>
+        <a href="index.html" class="active">UAF Merit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../index.html#calculators">Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>UAF Merit</span>
+      </nav>
+
+      <!-- UAF Criteria Guidance Banner -->
+      <div class="status-banner" style="background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; margin-bottom: var(--space-lg);">
+        <span class="status-banner-icon">&#9432;</span>
+        <div>
+          <strong>Official UAF Admission Criteria:</strong> Undergraduate merit at the University of Agriculture Faisalabad is determined using a 30:30:40 weighted formula (30% Matric, 30% Intermediate Part-I, and 40% UAF Entry Test).
+        </div>
+      </div>
+
+      <!-- Calculator Card -->
+      <div class="calculator-card">
+        <div class="calculator-header">
+          <h1 class="calculator-title">UAF Merit Calculator</h1>
+          <p class="calculator-subtitle">
+            Calculate your official undergraduate admission aggregate for the University of Agriculture Faisalabad (UAF).
+          </p>
+          <div class="weights-badge-bar">
+            <span>Official UAF Weights:</span>
+            <span class="weight-badge">Matric: 30%</span>
+            <span class="weight-badge">Inter Part-I: 30%</span>
+            <span class="weight-badge">UAF Entry Test: 40%</span>
+          </div>
+        </div>
+
+        <!-- Calculator Form -->
+        <form id="uaf-merit-form" novalidate>
+          
+          <!-- Section 1: Matriculation -->
+          <div class="form-section">
+            <h2 class="form-section-title">1. Matriculation (SSC) Marks (30% Weight)</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="matric-obtained" class="form-label">Matric Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 1000" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="matric-total" class="form-label">Matric Total Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-total" 
+                  class="form-input" 
+                  placeholder="e.g. 1100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Intermediate Part-I -->
+          <div class="form-section">
+            <h2 class="form-section-title">2. Intermediate Part-I (11th Grade / FSc) Marks (30% Weight)</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fsc-obtained" class="form-label">Inter Part-I Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 460" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="fsc-total" class="form-label">Inter Part-I Total Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc-total" 
+                  class="form-input" 
+                  placeholder="e.g. 520 or 550" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: UAF Entry Test -->
+          <div class="form-section">
+            <h2 class="form-section-title">3. UAF Entry Test Marks (40% Weight)</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="test-obtained" class="form-label">UAF Test Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="test-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 75" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-test-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="test-total" class="form-label">UAF Test Total Marks</label>
+                <input 
+                  type="number" 
+                  id="test-total" 
+                  class="form-input" 
+                  placeholder="e.g. 100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-test-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="calculate-btn">Calculate Merit</button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">Reset</button>
+          </div>
+
+        </form>
+
+        <!-- Result Box (Hidden until calculated) -->
+        <div id="result-box" class="result-box" aria-live="polite">
+          <div class="result-header">Your Composite UAF Admission Merit</div>
+          <div class="result-value" id="merit-result">0.00%</div>
+          
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Matric Contribution (30%)</div>
+              <div class="breakdown-item-value" id="breakdown-matric">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-matric-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Inter Part-I Contribution (30%)</div>
+              <div class="breakdown-item-value" id="breakdown-fsc">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-fsc-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">UAF Test Contribution (40%)</div>
+              <div class="breakdown-item-value" id="breakdown-test">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-test-detail">0.00% score</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
+      <section class="explainer-card">
+        <h2>Understanding the UAF Undergraduate Merit Formula</h2>
+        
+        <p>
+          The UAF Merit Calculator computes your official admission aggregate for undergraduate degree programs at the University of Agriculture Faisalabad (UAF). This confirmed calculation formula applies across UAF's main campus in Faisalabad as well as its sub-campuses in Toba Tek Singh, Burewala (Vehari), and Depalpur (Okara).
+        </p>
+
+        <div class="formula-display">
+          Aggregate (%) = (Matric Obt ÷ Total × 30) + (Inter Part-I Obt ÷ Total × 30) + (UAF Test Obt ÷ Total × 40)
+        </div>
+
+        <p>
+          Undergraduate admissions at UAF—including competitive programs such as Doctor of Veterinary Medicine (DVM), BSc (Hons) Agriculture, BS Computer Science, Agricultural Engineering, and Food Science &amp; Technology—are evaluated under UAF's official 30:30:40 weighting scheme.
+        </p>
+
+        <p>
+          UAF administers its own centralized entry test in multiple test streams each admissions season. Because undergraduate admissions commence before 12th-grade board results are declared, UAF officially evaluates Intermediate achievement using First Year (Part-I) marks.
+        </p>
+
+        <p>
+          This calculator incorporates the confirmed official UAF weighting criteria, replacing the earlier placeholder version. Students can use their computed aggregate score to evaluate their admission standing against previous closing merit lists across all UAF faculties and campuses.
+        </p>
+      </section>
+
+      <!-- Responsive Ad Unit Placeholder -->
+      <aside class="ad-slot-placeholder" aria-label="Advertisement Placeholder">
+        <span>Advertisement Placement (Configured for future AdSense / Ad Unit integration)</span>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p>&copy; <span id="current-year">2026</span> PakStudentTools. All rights reserved.</p>
+          <p class="footer-disclaimer">
+            Formulas and criteria follow current official Pakistani board (BISE), PMDC, and HEC guidelines. Always cross-check with official admission prospectus notices.
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#contact">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="calculator.js" defer></script>
+</body>
+</html>

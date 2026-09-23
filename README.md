@@ -49,7 +49,7 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   1. **Matric/FSc Aggregate Calculator:** Calculates combined marks and percentage for Matric (SSC) and Intermediate (HSSC/FSc) board exams (`/calculators/matric-fsc-aggregate/`).
   2. **MDCAT Merit Calculator:** Computes medical college entrance aggregate based on official PMDC weightages (`/calculators/mdcat-merit/`).
   3. **ECAT Merit Calculator:** Determines admission aggregate for UET and public engineering universities in Pakistan (`/calculators/ecat-merit/`).
-  4. **UAF Merit Calculator:** Computes admission merit score for University of Agriculture Faisalabad degree programs (`/calculators/uaf-merit/`).
+  4. **UAF Merit Calculator:** Computes official admission aggregate for University of Agriculture Faisalabad degree programs (`/calculators/uaf-merit/`).
 - **Monetization Banner:** Responsive ad placeholder unit positioned beneath the calculator grid.
 - **Footer:** Informational links (About, Contact, Privacy, Terms), auto-updating copyright year, and official academic disclaimer.
 
@@ -112,9 +112,30 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   };
   ```
 
+### 4. UAF Merit Calculator (`/calculators/uaf-merit/`)
+- **Purpose:** Computes a student's official admission aggregate for undergraduate programs at the University of Agriculture Faisalabad (UAF) across its main campus and sub-campuses (Toba Tek Singh, Burewala/Vehari, Depalpur/Okara).
+- **Formula Used:**
+  $$\text{Aggregate } (\%) = \left(\frac{\text{Matric Obtained}}{\text{Matric Total}} \times 30\right) + \left(\frac{\text{Inter Part-I Obtained}}{\text{Inter Part-I Total}} \times 30\right) + \left(\frac{\text{UAF Test Obtained}}{\text{UAF Test Total}} \times 40\right)$$
+- **Confirmed Weightages & Denominators:**
+  - Matriculation (SSC): **30%**
+  - Intermediate Part-I (11th Grade / FSc-I): **30%**
+  - UAF Entry Test: **40%** (test total marks are customizable by the user, typically out of 100)
+  - *Status:* Confirmed from official UAF admission criteria on September 23, 2026.
+- **Where to Adjust Weighting:**
+  To modify ratios if needed, edit `UAF_CONFIG` in [`calculators/uaf-merit/calculator.js`](calculators/uaf-merit/calculator.js#L17-L21):
+  ```javascript
+  const UAF_CONFIG = {
+    matricWeight: 30,     // Edit Matric weight here
+    fscWeight: 30,        // Edit Intermediate Part-I weight here
+    testWeight: 40        // Edit UAF Entry Test weight here
+  };
+  ```
+
 #### Needs Verification
 > [!WARNING]
-> **Action Required Before Public Launch:** The current default **17% Matric / 50% FSc / 33% ECAT** weightage split must be confirmed against the official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) prior to public launch, as admission criteria can be adjusted for specific academic cycles.
+> **ECAT Formula Verification:** The current default **17% Matric / 50% FSc / 33% ECAT** weightage split must be confirmed against the official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) prior to public launch.
+
+*(Note: UAF formula was verified and confirmed as 30/30/40 on September 23, 2026 and moved out of Needs Verification).*
 
 ## How to Run Locally
 Because this project is built entirely with static files, no build process or package installation is required.
@@ -149,15 +170,13 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Base responsive homepage (`index.html`) set up.
 - **Step 2 (Homepage & Navigation Integration):** **DONE**
   - Header nav updated with links to `/` and the 4 calculator paths.
-  - Replaced generic placeholder cards with 4 dedicated cards: Matric/FSc Aggregate Calculator, MDCAT Merit Calculator, ECAT Merit Calculator, and UAF Merit Calculator.
-  - Cards wired to `/calculators/matric-fsc-aggregate/`, `/calculators/mdcat-merit/`, `/calculators/ecat-merit/`, and `/calculators/uaf-merit/`.
+  - Replaced generic placeholder cards with 4 dedicated cards.
   - Added card hover/focus interaction states and action triggers in `style.css`.
   - Documented homepage/nav structure in `README.md`.
 - **Step 3 (Matric/FSc Aggregate Calculator):** **DONE**
   - Built standalone calculator page at `/calculators/matric-fsc-aggregate/index.html`.
   - Implemented 10% Matric + 40% FSc Part 1 + 50% FSc Part 2 formula with easily adjustable weight constants in `calculator.js`.
-  - Built interactive validation preventing calculation on non-numbers, negative values, missing fields, or obtained > total.
-  - Live result rendering formatted to 2 decimal places with visual component breakdown.
+  - Built validation, live error clearing, and formatted result with visual component breakdown.
   - Added ~185-word SEO explainer section and search meta tags.
   - Replaced root-relative links with portable relative links for direct `file:///` and HTTP server support.
 - **Step 4 (MDCAT Merit Calculator):** **DONE**
@@ -175,7 +194,15 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Live result rendering formatted to 2 decimal places with visual component breakdown.
   - Added ~203-word SEO explainer section detailing UET admission aggregate and clarifying variations across other institutions (ETEA for UET Peshawar, NET for NUST).
   - Explicitly flagged 17/50/33 split under "Needs Verification" for confirmation against `ecat.uet.edu.pk`.
+- **Step 6 (General University Merit Calculator):** **DONE**
+  - Built standalone calculator page at `/calculators/uaf-merit/index.html` as initial template.
+- **Step 7 (UAF Merit Calculator Update):** **DONE**
+  - Updated `/calculators/uaf-merit/index.html` and `calculator.js` to official UAF criteria: 30% Matric, 30% Intermediate Part-I, and 40% UAF Entry Test.
+  - Kept entry test total marks user-customizable.
+  - Updated on-page framing to UAF-specific guidelines (covering main campus and sub-campuses in Toba Tek Singh, Burewala, Depalpur).
+  - Added ~174-word SEO explainer section and search meta tags targeting "uaf merit calculator".
+  - Updated homepage card and navigation labels back to "UAF Merit".
+  - Moved UAF calculator out of "Needs Verification" in `README.md`.
 - **Not Built Yet:**
-  - UAF Merit Calculator (`/calculators/uaf-merit/`)
   - Live ad network publisher script integration (e.g., Google AdSense).
   - Dedicated pages for About Us, Contact form handler, Privacy Policy, and Terms of Service.
