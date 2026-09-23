@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matric and FSc Aggregate Calculator | PakStudentTools</title>
+  <meta name="description" content="Free online Matric and FSc aggregate calculator for Pakistani students. Calculate your combined SSC and HSSC Part 1 & Part 2 merit percentage for college and university admissions.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="brand">
+        <span>PakStudentTools</span>
+        <span class="brand-badge">Free</span>
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="../../index.html">Home</a>
+        <a href="index.html" class="active">Matric/FSc Aggregate</a>
+        <a href="../mdcat-merit/index.html">MDCAT Merit</a>
+        <a href="../ecat-merit/index.html">ECAT Merit</a>
+        <a href="../uaf-merit/index.html">UAF Merit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../index.html#calculators">Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Matric/FSc Aggregate</span>
+      </nav>
+
+      <!-- Calculator Card -->
+      <div class="calculator-card">
+        <div class="calculator-header">
+          <h1 class="calculator-title">Matric / FSc Aggregate Calculator</h1>
+          <p class="calculator-subtitle">
+            Calculate your combined academic merit score for Pakistani college and university admissions.
+          </p>
+          <div class="weights-badge-bar">
+            <span>Standard Weights Applied:</span>
+            <span class="weight-badge">Matric: 10%</span>
+            <span class="weight-badge">FSc Part 1: 40%</span>
+            <span class="weight-badge">FSc Part 2: 50%</span>
+          </div>
+        </div>
+
+        <!-- Calculator Form -->
+        <form id="aggregate-form" novalidate>
+          
+          <!-- Section 1: Matriculation -->
+          <div class="form-section">
+            <h2 class="form-section-title">1. Matriculation (SSC) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="matric-obtained" class="form-label">Matric Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 950" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="matric-total" class="form-label">Matric Total Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-total" 
+                  class="form-input" 
+                  placeholder="e.g. 1100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: FSc Part 1 -->
+          <div class="form-section">
+            <h2 class="form-section-title">2. FSc / HSSC Part 1 (11th Grade) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fsc1-obtained" class="form-label">FSc Part 1 Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc1-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 460" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc1-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="fsc1-total" class="form-label">FSc Part 1 Total Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc1-total" 
+                  class="form-input" 
+                  placeholder="e.g. 550 or 520" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc1-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: FSc Part 2 -->
+          <div class="form-section">
+            <h2 class="form-section-title">3. FSc / HSSC Part 2 (12th Grade) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fsc2-obtained" class="form-label">FSc Part 2 Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc2-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 480" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc2-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="fsc2-total" class="form-label">FSc Part 2 Total Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc2-total" 
+                  class="form-input" 
+                  placeholder="e.g. 550" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc2-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="calculate-btn">Calculate Aggregate</button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">Reset</button>
+          </div>
+
+        </form>
+
+        <!-- Result Box (Hidden until calculated) -->
+        <div id="result-box" class="result-box" aria-live="polite">
+          <div class="result-header">Your Composite Academic Aggregate</div>
+          <div class="result-value" id="aggregate-result">0.00%</div>
+          
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Matric Contribution (10%)</div>
+              <div class="breakdown-item-value" id="breakdown-matric">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-matric-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">FSc Part 1 Contribution (40%)</div>
+              <div class="breakdown-item-value" id="breakdown-fsc1">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-fsc1-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">FSc Part 2 Contribution (50%)</div>
+              <div class="breakdown-item-value" id="breakdown-fsc2">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-fsc2-detail">0.00% score</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
+      <section class="explainer-card">
+        <h2>Understanding the Matric &amp; FSc Aggregate Formula</h2>
+        
+        <p>
+          In Pakistan, admission to competitive undergraduate degree programs—including BS Engineering, Computer Science, Pre-Medical, and Social Sciences—relies on academic merit aggregates. Rather than evaluating raw totals alone, universities and provincial admission authorities calculate a weighted aggregate combining your secondary (Matric/SSC) and higher secondary (FSc/HSSC Part 1 and Part 2) examination results.
+        </p>
+
+        <div class="formula-display">
+          Aggregate (%) = (Matric Obt ÷ Total × 10) + (FSc-I Obt ÷ Total × 40) + (FSc-II Obt ÷ Total × 50)
+        </div>
+
+        <p>
+          The standard calculation formula determines your percentage score in each academic tier and applies official weightages. By default, Matriculation contributes 10%, FSc Part 1 contributes 40%, and FSc Part 2 contributes 50% toward the final composite score. This weighted structure places the greatest emphasis on your recent intermediate academic rigor while acknowledging foundational board results.
+        </p>
+
+        <p>
+          Students can compare their calculated aggregate directly against previous years' closing merit lists for institutions such as Punjab University (PU), GCU Lahore, and affiliated public degree colleges. While most public universities adhere to this 10:40:50 distribution, some specialized programs may apply alternative weightings, which can easily be configured in the calculator settings.
+        </p>
+      </section>
+
+      <!-- Responsive Ad Unit Placeholder -->
+      <aside class="ad-slot-placeholder" aria-label="Advertisement Placeholder">
+        <span>Advertisement Placement (Configured for future AdSense / Ad Unit integration)</span>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p>&copy; <span id="current-year">2026</span> PakStudentTools. All rights reserved.</p>
+          <p class="footer-disclaimer">
+            Formulas and criteria follow current official Pakistani board (BISE), PMDC, and HEC guidelines. Always cross-check with official admission prospectus notices.
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#contact">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="calculator.js" defer></script>
+</body>
+</html>
