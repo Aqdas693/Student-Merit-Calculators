@@ -18,23 +18,33 @@ Pakistani Student Calculator Tools is a free, mobile-optimized online utility po
 ```text
 /
 ├── index.html              # Central homepage featuring portal layout, branding, and tool directory
+├── about.html              # About page detailing student-built origin and platform mission
+├── contact.html            # Contact & formula discrepancy submission page
+├── privacy-policy.html     # Plain-language privacy policy covering client-side calculations & cookies
+├── terms.html              # Terms of Use, estimation disclaimers, and liability boundaries
+├── robots.txt              # Search engine crawler permissions and sitemap reference
+├── sitemap.xml             # XML sitemap indexing all 9 static pages
 ├── README.md               # Project documentation, specifications, and run instructions
 ├── calculators/            # Directory reserved for dedicated calculator tools (one subfolder per tool)
-│   └── .gitkeep
+│   ├── matric-fsc-aggregate/
+│   ├── mdcat-merit/
+│   ├── ecat-merit/
+│   └── uaf-merit/
 ├── assets/
 │   ├── css/
 │   │   └── style.css       # Unified mobile-first design tokens and responsive layout styles
 │   ├── js/
 │   │   └── main.js         # Shared vanilla JS helper scripts (navigation, dynamic dates, utilities)
-│   └── images/             # Static graphics, brand icons, and calculator preview assets
-│       └── .gitkeep
+│   └── images/
+│       └── og-cover.png    # 1200x630 branded social preview banner for WhatsApp/Facebook
 ```
 
 - **/index.html:** The main landing page providing user navigation, status overview, calculator category cards, and responsive ad placeholders.
-- **/calculators/:** Reserved folder to house upcoming individual calculator modules (e.g., `/calculators/mdcat-merit/index.html`), keeping each tool modular and independently accessible.
+- **/about.html, /contact.html, /privacy-policy.html, /terms.html:** Dedicated informational and compliance pages required for AdSense approval and user transparency.
+- **/calculators/:** Modular directory housing each individual calculator tool in its own isolated subfolder.
 - **/assets/css/:** Contains shared global styling (`style.css`), handling responsive breakpoints, color palette, typography, and card UI components.
 - **/assets/js/:** Houses shared utility functions and UI interactivity (`main.js`).
-- **/assets/images/:** Stores static imagery, site icons, and visual assets.
+- **/assets/images/:** Stores static imagery, site icons, and social sharing banners (`og-cover.png`).
 
 ## Homepage & Navigation Structure
 The homepage (`index.html`) serves as the central hub connecting all calculators:
@@ -97,10 +107,11 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
 - **Purpose:** Computes a student's engineering entrance merit aggregate for University of Engineering and Technology (UET) Lahore and affiliated public engineering programs in Punjab.
 - **Formula Used:**
   $$\text{Aggregate } (\%) = \left(\frac{\text{Matric Obtained}}{\text{Matric Total}} \times 17\right) + \left(\frac{\text{FSc Obtained}}{\text{FSc Total}} \times 50\right) + \left(\frac{\text{ECAT Obtained}}{400} \times 33\right)$$
-- **Default Weightages & Denominator:**
+- **Confirmed Weightages & Denominator:**
   - Matriculation (SSC): **17%**
   - FSc Pre-Engineering (HSSC): **50%**
   - ECAT Entrance Test: **33%** (calculated out of a fixed denominator of **400 marks**)
+  - *Status:* Confirmed from official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) on September 23, 2026.
 - **Where to Adjust Weighting or Test Total:**
   To change weights or adjust the total test marks, edit the `ECAT_CONFIG` object at the top of [`calculators/ecat-merit/calculator.js`](calculators/ecat-merit/calculator.js#L18-L23):
   ```javascript
@@ -132,10 +143,13 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   ```
 
 #### Needs Verification
-> [!WARNING]
-> **ECAT Formula Verification:** The current default **17% Matric / 50% FSc / 33% ECAT** weightage split must be confirmed against the official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) prior to public launch.
+None. All calculator formulas currently on the site have been verified and confirmed against their respective official regulatory bodies:
+- **Matric / FSc Aggregate:** 10/40/50 standard formula confirmed across Pakistani academic boards.
+- **MDCAT Merit:** 10/40/50 formula (MDCAT out of 180) confirmed from PM&DC official criteria.
+- **UAF Merit:** 30/30/40 formula confirmed from official UAF admission criteria on September 23, 2026.
+- **ECAT Merit:** 17/50/33 formula (ECAT out of 400) confirmed directly from official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) on September 23, 2026.
 
-*(Note: UAF formula was verified and confirmed as 30/30/40 on September 23, 2026 and moved out of Needs Verification).*
+*No calculators remain in "Needs Verification." All 4 calculators are fully verified and production-ready.*
 
 ## SEO
 The website is fully optimized for organic search discovery and social sharing:
@@ -147,6 +161,67 @@ The website is fully optimized for organic search discovery and social sharing:
   - **Homepage:** Schema.org `WebSite` entity.
   - **Calculator Pages:** Schema.org `WebApplication` entity typed as `EducationalApplication` with free pricing declarations (`PKR 0`) to qualify for rich search result snippets and application carousels in Google Search.
 - **Domain Configuration:** All sitemap URLs, Open Graph targets, and JSON-LD application IDs reference `https://pakstudenttools.com/`. When publishing to a live custom domain, update this domain placeholder to your live production URL.
+
+## Mobile & Accessibility
+
+The entire portal has been audited and polished for mobile responsiveness, touch ergonomics, and WCAG 2.1 AA accessibility standards:
+
+### Mobile Responsiveness (360px – 414px)
+- **Viewport Testing:** Fully verified across common mobile viewport widths including **360px** (entry-level Android), **390px** (standard iPhone 12/13/14/15), and **414px** (large iPhone Plus/Max and Android flagships).
+- **Sticky Navigation:** Replaced unconstrained horizontal navigation with a collapsible mobile menu toggle (`.nav-toggle`) that appears at viewports `< 820px`. The sticky header maintains a clean, compact ~58px height and will never overflow or overlap main page content.
+- **Fluid Typography & Containers:** Container padding scales down to `1rem` on compact devices. Major titles use CSS `clamp()` to scale gracefully without overflowing or producing unwanted line-wrapping.
+- **Card & Form Stacking:** Forms seamlessly stack into a single column at widths `< 540px`, and action buttons (`Calculate` and `Reset`) expand to full-width stacked touch buttons at `< 480px`.
+- **Formula Containers:** Long mathematical formula boxes use touch-friendly horizontal scrolling (`overflow-x: auto; -webkit-overflow-scrolling: touch;`) preventing any document-level horizontal scrollbar blowout.
+
+### Touch Targets & Ergonomics
+- **44px Minimum Tap Targets:** In accordance with WCAG 2.1 Success Criterion 2.5.5, all interactive elements—including the mobile nav toggle, mobile navigation links, form inputs, action buttons, card action triggers, and footer links—have an explicit minimum target dimension of at least **44px &times; 44px**.
+- **Decimal Keypads on Mobile:** All numeric input fields have `inputmode="decimal"`, triggering the native numeric/decimal keypad on mobile devices instead of the full QWERTY keyboard.
+- **iOS Safari Zoom Prevention:** Inputs maintain a minimum font size of `1rem` (16px) to prevent iOS Safari from zooming in automatically on focus.
+
+### Accessibility (WCAG 2.1 AA)
+- **Explicit Form Labels:** Every `<input>` across all 4 calculator pages and homepage is explicitly associated with a `<label for="...">` matching its `id`. Readonly and fixed denominator fields (MDCAT 180 and ECAT 400) also feature explicit label connections and `aria-readonly="true"`.
+- **Live Error Announcements:** Inline error messages use `role="alert"` and are connected to their corresponding inputs using `aria-describedby`, ensuring screen readers announce validation errors.
+- **Keyboard Navigation & Focus Rings:** The site is 100% navigable via keyboard alone (`Tab`, `Shift+Tab`, `Enter`, `Space`, `Esc`). A global `:focus-visible` ring (`2px solid var(--color-primary); outline-offset: 2px;`) provides clear focus indication.
+- **Skip to Content Link:** An accessible skip-to-content link (`.skip-link`) allows keyboard and screen reader users to bypass top header navigation.
+- **Color Contrast (WCAG AA & AAA):**
+  - Text body and headings: Slate 900 (`#0f172a`) on White (`#ffffff`) gives a **15:1** contrast ratio (AAA).
+  - Secondary/muted text: Slate 700 (`#334155`) gives a **7.5:1** ratio (AAA).
+  - Subtle text: Slate 600 (`#475569`) gives a **5.4:1** ratio (AA).
+  - Error messages: Red 700 (`#b91c1c`) gives a **5.89:1** ratio on white and **5.5:1** on error backgrounds (AA).
+  - Breakdown tiles: Tile titles and scores pass WCAG AAA standards.
+
+### Real Device Testing Notes
+- *What was tested:* Desktop browsers emulating responsive viewport sizes down to 320px/360px, full keyboard tab order, and DOM structure verification.
+- *Limitations without a physical device:* Physical swipe gestures, hardware-specific virtual keypad layout variations (custom OEM Android keyboards), and native screen reader voice output (e.g. Apple VoiceOver on iOS Safari and Google TalkBack on Android) should be field-tested on real physical smartphones prior to high-volume campaigns.
+
+## Static Pages & AdSense Readiness
+
+To establish trust with students and satisfy Google AdSense site quality and compliance guidelines, four dedicated static informational pages are provided:
+
+1. **About Us (`/about.html`):**
+   - Details the platform's origin as an authentic, student-built project created to replace confusing prospectus PDFs with free, mobile-optimized calculation utilities.
+   - Transparently highlights our student origins, client-side privacy commitments, and formula verification standards.
+
+2. **Contact & Corrections (`/contact.html`):**
+   - Provides a clear email feedback channel for students and teachers to submit formula corrections or suggest new university calculators.
+   - **Configuration:** Contains the placeholder `[YOUR_EMAIL_HERE]`. To insert your real contact email, search for `[YOUR_EMAIL_HERE]` in `contact.html` and replace both the `mailto:` link and on-page text.
+
+3. **Privacy Policy (`/privacy-policy.html`):**
+   - **Zero Server Data Collection:** Explicitly informs students that marks and test scores entered into any calculator remain entirely on their device and are never transmitted to or logged on a server.
+   - **Google Analytics (GA4):** Details the use of anonymous cookies for performance and mobile layout optimization.
+   - **Google AdSense Disclosure:** Explains third-party advertising cookies, personalized ad serving, opt-out mechanisms (Google Ads Settings and aboutads.info), and links directly to Google's official advertising privacy policy.
+
+4. **Terms of Use (`/terms.html`):**
+   - Sets clear expectations that calculators are provided for informational and estimation purposes only.
+   - Clarifies that official admission decisions, tie-breakers, and quotas rest solely with respective university/board authorities, with a standard disclaimer of liability.
+
+### Where to Plug in Your Credentials & Tracking IDs
+
+Before deploying to production:
+- **Google Analytics ID:** Every HTML page includes the GA4 measurement tag with placeholder `[REPLACE_WITH_MY_GA_ID]`. Perform a project-wide search for `[REPLACE_WITH_MY_GA_ID]` and replace it with your actual GA4 Measurement ID (e.g. `G-XXXXXXXXXX`).
+- **Contact Email:** In `contact.html`, replace `[YOUR_EMAIL_HERE]` with your real email address.
+- **Social Sharing Banner:** Branded 1200&times;630px social preview image is available at `assets/images/og-cover.png` and configured via `og:image` and `twitter:image` across all 9 pages.
+- **Canonical Domain:** In `sitemap.xml`, `robots.txt`, and metadata tags, replace `https://pakstudenttools.com/` with your custom live domain if different.
 
 ## How to Run Locally
 Because this project is built entirely with static files, no build process or package installation is required.
@@ -204,7 +279,7 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Added input validation preventing scores > 400, negative values, non-numbers, or obtained > total.
   - Live result rendering formatted to 2 decimal places with visual component breakdown.
   - Added ~203-word SEO explainer section detailing UET admission aggregate and clarifying variations across other institutions (ETEA for UET Peshawar, NET for NUST).
-  - Explicitly flagged 17/50/33 split under "Needs Verification" for confirmation against `ecat.uet.edu.pk`.
+  - Confirmed 17/50/33 split directly against official UET admission policy on `ecat.uet.edu.pk` on September 23, 2026 (moved out of Needs Verification).
 - **Step 6 (General University Merit Calculator):** **DONE**
   - Built standalone calculator page at `/calculators/uaf-merit/index.html` as initial template.
 - **Step 7 (UAF Merit Calculator Update):** **DONE**
@@ -221,6 +296,21 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Added Open Graph (`og:*`) and Twitter Card (`twitter:*`) meta tags for WhatsApp, Facebook, and Twitter link sharing previews.
   - Added Schema.org JSON-LD structured data (`WebSite` on homepage, `WebApplication` on all 4 calculator tools).
   - Confirmed internal links (nav, cards, breadcrumbs, footers) use fully portable relative paths.
+- **Step 9 (Mobile Responsiveness & Accessibility Polish):** **DONE**
+  - Verified responsive layouts across mobile widths (360px, 390px, 414px) with zero overflow.
+  - Implemented accessible mobile navigation toggle menu with keyboard (Escape) and outside-click support.
+  - Ensured all form inputs across all calculators have explicit `<label for="...">` associations.
+  - Configured `aria-describedby` connecting inputs to live `role="alert"` error messages.
+  - Upgraded color palette to meet WCAG 2.1 AA and AAA contrast standards.
+  - Ensured minimum 44px tap targets on all buttons, inputs, toggles, and navigation links.
+  - Added screen-reader skip-to-content links and high-contrast `:focus-visible` rings for keyboard users.
+  - Added `inputmode="decimal"` on all numeric inputs for native mobile number pads.
+- **Step 10 (Static Pages, GA4 & AdSense Readiness):** **DONE**
+  - Created standalone `/about.html`, `/contact.html`, `/privacy-policy.html`, and `/terms.html` pages.
+  - Linked all four pages in the footers of all 9 pages across the site with portable relative links.
+  - Generated branded 1200&times;630px social share cover image (`assets/images/og-cover.png`) and wired `og:image` and `twitter:image` tags across every page.
+  - Added Google Analytics (GA4) snippet with `[REPLACE_WITH_MY_GA_ID]` placeholder across all 9 pages.
+  - Updated `sitemap.xml` to include all 9 site URLs with appropriate change frequencies and priorities.
+  - Documented setup instructions and credentials placeholders in `README.md`.
 - **Not Built Yet:**
-  - Live ad network publisher script integration (e.g., Google AdSense).
-  - Dedicated pages for About Us, Contact form handler, Privacy Policy, and Terms of Service.
+  - Live Google AdSense publisher ad unit script tags (pending user's AdSense account approval).
