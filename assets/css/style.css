@@ -513,22 +513,15 @@ img {
   text-decoration: underline;
 }
 
-/* Ad Placement Placeholder (for monetization structure) */
+/* Ad Placement Container (Reserved for future AdSense / Ad Unit integration) */
 .ad-slot-placeholder {
-  background: #f1f5f9;
-  border: 2px dashed #cbd5e1;
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  text-align: center;
-  color: var(--color-text-subtle);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   margin-top: var(--space-xl);
   min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
+  border: none;
 }
 
 /* --------------------------------------------------------------------------

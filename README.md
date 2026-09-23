@@ -60,7 +60,7 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   2. **MDCAT Merit Calculator:** Computes medical college entrance aggregate based on official PMDC weightages (`/calculators/mdcat-merit/`).
   3. **ECAT Merit Calculator:** Determines admission aggregate for UET and public engineering universities in Pakistan (`/calculators/ecat-merit/`).
   4. **UAF Merit Calculator:** Computes official admission aggregate for University of Agriculture Faisalabad degree programs (`/calculators/uaf-merit/`).
-- **Monetization Banner:** Responsive ad placeholder unit positioned beneath the calculator grid.
+- **Monetization Slot:** Clean, responsive ad unit containers (`<aside class="ad-slot-placeholder">`) positioned beneath the calculator grid and on individual calculator pages. Containers are present in the HTML/CSS with pre-reserved layout space, but intentionally rendered invisible (borderless/transparent with no visible placeholder text) until real Google AdSense ad units are activated.
 - **Footer:** Informational links (About, Contact, Privacy, Terms), auto-updating copyright year, and official academic disclaimer.
 
 ## Calculators
@@ -311,5 +311,6 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Configured Google Analytics (GA4) with live Measurement ID `G-99GKCS44FT` across all 9 pages.
   - Updated `sitemap.xml` to include all 9 site URLs with appropriate change frequencies and priorities.
   - Documented setup instructions and credentials placeholders in `README.md`.
-- **Not Built Yet:**
-  - Live Google AdSense publisher ad unit script tags (pending user's AdSense account approval).
+- **Monetization & Ad Units:**
+  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 4 calculator pages with reserved layout spacing.
+  - They are intentionally invisible (no background, borders, or placeholder text) to ensure a clean student experience until an approved Google AdSense publisher ID and live ad unit tags are integrated.
