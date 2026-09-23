@@ -160,7 +160,7 @@ The website is fully optimized for organic search discovery and social sharing:
 - **Structured Data (JSON-LD):**
   - **Homepage:** Schema.org `WebSite` entity.
   - **Calculator Pages:** Schema.org `WebApplication` entity typed as `EducationalApplication` with free pricing declarations (`PKR 0`) to qualify for rich search result snippets and application carousels in Google Search.
-- **Domain Configuration:** All sitemap URLs, Open Graph targets, and JSON-LD application IDs reference `https://pakstudenttools.com/`. When publishing to a live custom domain, update this domain placeholder to your live production URL.
+- **Domain Configuration:** All sitemap URLs, Open Graph targets, canonical tags, and JSON-LD application IDs reference the live production domain `https://student-merit-calculators.vercel.app/`.
 
 ## Mobile & Accessibility
 
@@ -204,7 +204,7 @@ To establish trust with students and satisfy Google AdSense site quality and com
 
 2. **Contact & Corrections (`/contact.html`):**
    - Provides a clear email feedback channel for students and teachers to submit formula corrections or suggest new university calculators.
-   - **Configuration:** Contains the placeholder `[YOUR_EMAIL_HERE]`. To insert your real contact email, search for `[YOUR_EMAIL_HERE]` in `contact.html` and replace both the `mailto:` link and on-page text.
+   - **Configuration:** Live feedback email set to `aqdas3957@gmail.com` for direct student and educator inquiries.
 
 3. **Privacy Policy (`/privacy-policy.html`):**
    - **Zero Server Data Collection:** Explicitly informs students that marks and test scores entered into any calculator remain entirely on their device and are never transmitted to or logged on a server.
@@ -215,13 +215,12 @@ To establish trust with students and satisfy Google AdSense site quality and com
    - Sets clear expectations that calculators are provided for informational and estimation purposes only.
    - Clarifies that official admission decisions, tie-breakers, and quotas rest solely with respective university/board authorities, with a standard disclaimer of liability.
 
-### Where to Plug in Your Credentials & Tracking IDs
-
-Before deploying to production:
+### Production Configuration & Live Endpoints
+- **Live Production URL:** `https://student-merit-calculators.vercel.app/`
 - **Google Analytics ID:** Configured and active across all 9 pages with live Measurement ID `G-99GKCS44FT`.
-- **Contact Email:** In `contact.html`, replace `[YOUR_EMAIL_HERE]` with your real email address.
+- **Contact Email:** Configured as `aqdas3957@gmail.com` in `contact.html`.
 - **Social Sharing Banner:** Branded 1200&times;630px social preview image is available at `assets/images/og-cover.png` and configured via `og:image` and `twitter:image` across all 9 pages.
-- **Canonical Domain:** In `sitemap.xml`, `robots.txt`, and metadata tags, replace `https://pakstudenttools.com/` with your custom live domain if different.
+- **Canonical Domain & Sitemap:** Indexed at `https://student-merit-calculators.vercel.app/sitemap.xml` and referenced in `robots.txt` and all page meta tags.
 
 ## How to Run Locally
 Because this project is built entirely with static files, no build process or package installation is required.

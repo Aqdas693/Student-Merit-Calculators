@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pakstudenttools.com/index.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/index.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/calculators/matric-fsc-aggregate/index.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/calculators/matric-fsc-aggregate/index.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/calculators/mdcat-merit/index.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/calculators/mdcat-merit/index.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/calculators/ecat-merit/index.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/calculators/ecat-merit/index.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/calculators/uaf-merit/index.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/calculators/uaf-merit/index.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/about.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/about.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/contact.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/contact.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/privacy-policy.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/privacy-policy.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://pakstudenttools.com/terms.html</loc>
+    <loc>https://student-merit-calculators.vercel.app/terms.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pakstudenttools.com/sitemap.xml
+Sitemap: https://student-merit-calculators.vercel.app/sitemap.xml
