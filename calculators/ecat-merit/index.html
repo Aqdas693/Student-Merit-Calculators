@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECAT Merit Calculator 2026 | UET Engineering Aggregate</title>
+  <meta name="description" content="Calculate your UET engineering admission aggregate with the free ECAT merit calculator. Computes weighted merit from Matric (17%), FSc (50%), and ECAT (33%).">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="brand">
+        <span>PakStudentTools</span>
+        <span class="brand-badge">Free</span>
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../matric-fsc-aggregate/index.html">Matric/FSc Aggregate</a>
+        <a href="../mdcat-merit/index.html">MDCAT Merit</a>
+        <a href="index.html" class="active">ECAT Merit</a>
+        <a href="../uaf-merit/index.html">UAF Merit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../index.html#calculators">Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>ECAT Merit</span>
+      </nav>
+
+      <!-- Calculator Card -->
+      <div class="calculator-card">
+        <div class="calculator-header">
+          <h1 class="calculator-title">ECAT Merit Calculator</h1>
+          <p class="calculator-subtitle">
+            Calculate your engineering admission aggregate for UET Lahore and affiliated engineering institutions in Pakistan.
+          </p>
+          <div class="weights-badge-bar">
+            <span>UET Engineering Standard Weights:</span>
+            <span class="weight-badge">Matric: 17%</span>
+            <span class="weight-badge">FSc Pre-Eng: 50%</span>
+            <span class="weight-badge">ECAT: 33% (out of 400)</span>
+          </div>
+        </div>
+
+        <!-- Calculator Form -->
+        <form id="ecat-form" novalidate>
+          
+          <!-- Section 1: Matriculation -->
+          <div class="form-section">
+            <h2 class="form-section-title">1. Matriculation (SSC) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="matric-obtained" class="form-label">Matric Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 1020" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="matric-total" class="form-label">Matric Total Marks</label>
+                <input 
+                  type="number" 
+                  id="matric-total" 
+                  class="form-input" 
+                  placeholder="e.g. 1100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-matric-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: FSc Pre-Engineering -->
+          <div class="form-section">
+            <h2 class="form-section-title">2. FSc Pre-Engineering (HSSC) Marks</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fsc-obtained" class="form-label">FSc Obtained Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 980" 
+                  min="0" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="fsc-total" class="form-label">FSc Total Marks</label>
+                <input 
+                  type="number" 
+                  id="fsc-total" 
+                  class="form-input" 
+                  placeholder="e.g. 1100" 
+                  min="1" 
+                  step="any"
+                  required
+                >
+                <span id="error-fsc-total" class="error-text" role="alert"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: ECAT Test Score -->
+          <div class="form-section">
+            <h2 class="form-section-title">3. ECAT Entrance Test Score</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ecat-obtained" class="form-label">ECAT Obtained Score (out of 400)</label>
+                <input 
+                  type="number" 
+                  id="ecat-obtained" 
+                  class="form-input" 
+                  placeholder="e.g. 280" 
+                  min="0" 
+                  max="400"
+                  step="any"
+                  required
+                >
+                <span id="error-ecat-obtained" class="error-text" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ECAT Total Test Denominator</label>
+                <input 
+                  type="text" 
+                  class="form-input" 
+                  value="400 Marks (UET ECAT Standard)" 
+                  readonly 
+                  tabindex="-1"
+                  style="background-color: var(--color-bg-body); cursor: default; color: var(--color-text-muted);"
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="calculate-btn">Calculate Merit</button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">Reset</button>
+          </div>
+
+        </form>
+
+        <!-- Result Box (Hidden until calculated) -->
+        <div id="result-box" class="result-box" aria-live="polite">
+          <div class="result-header">Your Composite ECAT Engineering Merit</div>
+          <div class="result-value" id="merit-result">0.00%</div>
+          
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Matric Contribution (17%)</div>
+              <div class="breakdown-item-value" id="breakdown-matric">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-matric-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">FSc Contribution (50%)</div>
+              <div class="breakdown-item-value" id="breakdown-fsc">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-fsc-detail">0.00% score</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">ECAT Contribution (33%)</div>
+              <div class="breakdown-item-value" id="breakdown-ecat">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-ecat-detail">0.00% score</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
+      <section class="explainer-card">
+        <h2>Understanding the ECAT &amp; Engineering Merit Formula</h2>
+        
+        <p>
+          The ECAT Merit Calculator helps prospective engineering students determine their admission aggregate for public engineering universities across Punjab, primarily the University of Engineering and Technology (UET) Lahore and its affiliated campuses. Under the standard UET admission criteria, merit is calculated using a composite weighted score combining Matriculation, FSc Pre-Engineering, and the official Engineering College Admission Test (ECAT):
+        </p>
+
+        <div class="formula-display">
+          Aggregate (%) = (Matric Obt ÷ Total × 17) + (FSc Obt ÷ Total × 50) + (ECAT Obt ÷ 400 × 33)
+        </div>
+
+        <p>
+          Because the ECAT exam is evaluated out of a maximum of 400 marks, your test percentage is calculated directly against 400 and scaled to 33% of your final aggregate.
+        </p>
+
+        <p>
+          <strong>Important Note on University Variations:</strong> It is crucial to recognize that there is no universal merit formula across Pakistani engineering institutions. While UET Lahore and Punjab public colleges utilize this ECAT-based formula, other leading engineering universities follow distinct criteria. For example, UET Peshawar conducts its own entrance test through the Educational Testing and Evaluation Agency (ETEA) with different weightings, while the National University of Sciences and Technology (NUST) conducts the NET test and weights it at 75% alongside 15% FSc and 10% Matric. Always verify specific departmental criteria against your target university's official admission prospectus.
+        </p>
+      </section>
+
+      <!-- Responsive Ad Unit Placeholder -->
+      <aside class="ad-slot-placeholder" aria-label="Advertisement Placeholder">
+        <span>Advertisement Placement (Configured for future AdSense / Ad Unit integration)</span>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p>&copy; <span id="current-year">2026</span> PakStudentTools. All rights reserved.</p>
+          <p class="footer-disclaimer">
+            Formulas and criteria follow current official Pakistani board (BISE), PMDC, and HEC guidelines. Always cross-check with official admission prospectus notices.
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#contact">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="calculator.js" defer></script>
+</body>
+</html>

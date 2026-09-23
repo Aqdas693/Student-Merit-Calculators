@@ -93,6 +93,29 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   ```
 - **NUMS Context:** Note that while NUMS also applies a 10/40/50 formula, its entrance test denominator is out of 200 rather than 180, so results are computed separately.
 
+### 3. ECAT Merit Calculator (`/calculators/ecat-merit/`)
+- **Purpose:** Computes a student's engineering entrance merit aggregate for University of Engineering and Technology (UET) Lahore and affiliated public engineering programs in Punjab.
+- **Formula Used:**
+  $$\text{Aggregate } (\%) = \left(\frac{\text{Matric Obtained}}{\text{Matric Total}} \times 17\right) + \left(\frac{\text{FSc Obtained}}{\text{FSc Total}} \times 50\right) + \left(\frac{\text{ECAT Obtained}}{400} \times 33\right)$$
+- **Default Weightages & Denominator:**
+  - Matriculation (SSC): **17%**
+  - FSc Pre-Engineering (HSSC): **50%**
+  - ECAT Entrance Test: **33%** (calculated out of a fixed denominator of **400 marks**)
+- **Where to Adjust Weighting or Test Total:**
+  To change weights or adjust the total test marks, edit the `ECAT_CONFIG` object at the top of [`calculators/ecat-merit/calculator.js`](calculators/ecat-merit/calculator.js#L18-L23):
+  ```javascript
+  const ECAT_CONFIG = {
+    matricWeight: 17,    // Edit Matric weight here
+    fscWeight: 50,       // Edit FSc Pre-Engineering weight here
+    ecatWeight: 33,      // Edit ECAT test weight here
+    ecatTotal: 400       // Edit ECAT total test denominator here
+  };
+  ```
+
+#### Needs Verification
+> [!WARNING]
+> **Action Required Before Public Launch:** The current default **17% Matric / 50% FSc / 33% ECAT** weightage split must be confirmed against the official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) prior to public launch, as admission criteria can be adjusted for specific academic cycles.
+
 ## How to Run Locally
 Because this project is built entirely with static files, no build process or package installation is required.
 
@@ -144,8 +167,15 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Built validation preventing scores > 180, negative values, non-numbers, or obtained > total.
   - Live result rendering with 2 decimal places and component breakdown display.
   - Added ~184-word SEO explainer section covering PM&DC criteria, provincial authorities, and NUMS test distinction.
+- **Step 5 (ECAT Merit Calculator):** **DONE**
+  - Built standalone calculator page at `/calculators/ecat-merit/index.html`.
+  - Implemented 17% Matric + 50% FSc Pre-Engineering + 33% ECAT (out of 400) formula.
+  - Fully configurable weighting constants in `calculator.js`.
+  - Added input validation preventing scores > 400, negative values, non-numbers, or obtained > total.
+  - Live result rendering formatted to 2 decimal places with visual component breakdown.
+  - Added ~203-word SEO explainer section detailing UET admission aggregate and clarifying variations across other institutions (ETEA for UET Peshawar, NET for NUST).
+  - Explicitly flagged 17/50/33 split under "Needs Verification" for confirmation against `ecat.uet.edu.pk`.
 - **Not Built Yet:**
-  - ECAT Merit Calculator (`/calculators/ecat-merit/`)
   - UAF Merit Calculator (`/calculators/uaf-merit/`)
   - Live ad network publisher script integration (e.g., Google AdSense).
   - Dedicated pages for About Us, Contact form handler, Privacy Policy, and Terms of Service.
