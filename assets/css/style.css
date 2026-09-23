@@ -278,6 +278,7 @@ img {
   color: var(--color-text-muted);
   border-radius: var(--radius-sm);
   text-decoration: none;
+  cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 

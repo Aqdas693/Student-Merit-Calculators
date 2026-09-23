@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close when navigating via a link inside the menu
-    siteNav.querySelectorAll('a').forEach((link) => {
+    // Close mobile nav when clicking in-page hash links (leave page links alone so navigation isn't interrupted)
+    siteNav.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', () => {
         if (siteNav.classList.contains('nav-open')) {
           closeNav();
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close mobile nav if resized to desktop breakpoint
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768 && siteNav.classList.contains('nav-open')) {
+      if (window.innerWidth >= 820 && siteNav.classList.contains('nav-open')) {
         closeNav();
       }
     });
