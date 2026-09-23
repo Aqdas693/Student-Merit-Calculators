@@ -218,7 +218,7 @@ To establish trust with students and satisfy Google AdSense site quality and com
 ### Where to Plug in Your Credentials & Tracking IDs
 
 Before deploying to production:
-- **Google Analytics ID:** Every HTML page includes the GA4 measurement tag with placeholder `[REPLACE_WITH_MY_GA_ID]`. Perform a project-wide search for `[REPLACE_WITH_MY_GA_ID]` and replace it with your actual GA4 Measurement ID (e.g. `G-XXXXXXXXXX`).
+- **Google Analytics ID:** Configured and active across all 9 pages with live Measurement ID `G-99GKCS44FT`.
 - **Contact Email:** In `contact.html`, replace `[YOUR_EMAIL_HERE]` with your real email address.
 - **Social Sharing Banner:** Branded 1200&times;630px social preview image is available at `assets/images/og-cover.png` and configured via `og:image` and `twitter:image` across all 9 pages.
 - **Canonical Domain:** In `sitemap.xml`, `robots.txt`, and metadata tags, replace `https://pakstudenttools.com/` with your custom live domain if different.
@@ -309,7 +309,7 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Created standalone `/about.html`, `/contact.html`, `/privacy-policy.html`, and `/terms.html` pages.
   - Linked all four pages in the footers of all 9 pages across the site with portable relative links.
   - Generated branded 1200&times;630px social share cover image (`assets/images/og-cover.png`) and wired `og:image` and `twitter:image` tags across every page.
-  - Added Google Analytics (GA4) snippet with `[REPLACE_WITH_MY_GA_ID]` placeholder across all 9 pages.
+  - Configured Google Analytics (GA4) with live Measurement ID `G-99GKCS44FT` across all 9 pages.
   - Updated `sitemap.xml` to include all 9 site URLs with appropriate change frequencies and priorities.
   - Documented setup instructions and credentials placeholders in `README.md`.
 - **Not Built Yet:**
