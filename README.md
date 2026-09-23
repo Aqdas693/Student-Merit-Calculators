@@ -137,6 +137,17 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
 
 *(Note: UAF formula was verified and confirmed as 30/30/40 on September 23, 2026 and moved out of Needs Verification).*
 
+## SEO
+The website is fully optimized for organic search discovery and social sharing:
+- **XML Sitemap (`/sitemap.xml`):** Comprehensive standard sitemap indexing the homepage (`1.0` priority) and all four calculator tools (`0.8` priority) with update frequency metadata.
+- **Robots Exclusion Standard (`/robots.txt`):** Permits crawling across all user-agents (`Allow: /`) and declares the sitemap location.
+- **Unique Meta Tags:** Every page includes distinct, keyword-focused `<title>` and `<meta name="description">` elements tailored to student search intent (e.g., "MDCAT Merit Calculator 2026", "PMDC MBBS BDS Aggregate").
+- **Open Graph & Twitter Cards:** Configured on every page (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `twitter:card`) ensuring high-fidelity link preview cards when links are shared in WhatsApp student groups, Facebook communities, and forums.
+- **Structured Data (JSON-LD):**
+  - **Homepage:** Schema.org `WebSite` entity.
+  - **Calculator Pages:** Schema.org `WebApplication` entity typed as `EducationalApplication` with free pricing declarations (`PKR 0`) to qualify for rich search result snippets and application carousels in Google Search.
+- **Domain Configuration:** All sitemap URLs, Open Graph targets, and JSON-LD application IDs reference `https://pakstudenttools.com/`. When publishing to a live custom domain, update this domain placeholder to your live production URL.
+
 ## How to Run Locally
 Because this project is built entirely with static files, no build process or package installation is required.
 
@@ -203,6 +214,13 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Added ~174-word SEO explainer section and search meta tags targeting "uaf merit calculator".
   - Updated homepage card and navigation labels back to "UAF Merit".
   - Moved UAF calculator out of "Needs Verification" in `README.md`.
+- **Step 8 (Site-Wide SEO Essentials):** **DONE**
+  - Created standard XML sitemap at `/sitemap.xml` covering homepage and all 4 calculator pages.
+  - Created `/robots.txt` declaring crawler permissions and sitemap link.
+  - Configured unique, descriptive `<title>` and `<meta name="description">` tags on every page.
+  - Added Open Graph (`og:*`) and Twitter Card (`twitter:*`) meta tags for WhatsApp, Facebook, and Twitter link sharing previews.
+  - Added Schema.org JSON-LD structured data (`WebSite` on homepage, `WebApplication` on all 4 calculator tools).
+  - Confirmed internal links (nav, cards, breadcrumbs, footers) use fully portable relative paths.
 - **Not Built Yet:**
   - Live ad network publisher script integration (e.g., Google AdSense).
   - Dedicated pages for About Us, Contact form handler, Privacy Policy, and Terms of Service.
