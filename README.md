@@ -162,6 +162,22 @@ The website is fully optimized for organic search discovery and social sharing:
   - **Calculator Pages:** Schema.org `WebApplication` entity typed as `EducationalApplication` with free pricing declarations (`PKR 0`) to qualify for rich search result snippets and application carousels in Google Search.
 - **Domain Configuration:** All sitemap URLs, Open Graph targets, canonical tags, and JSON-LD application IDs reference the live production domain `https://student-merit-calculators.vercel.app/`.
 
+## Mobile UX
+
+The site includes tailored mobile user experience enhancements across all pages and calculators:
+
+### 1. Full-Screen Hamburger Menu Overlay & Scroll Lock
+- **Full Viewport Coverage:** On mobile screens (< 820px), toggling the hamburger menu expands the navigation into a full-screen overlay (`100vw` by `100dvh` / `100vh - 58px`), eliminating partial dropdowns and visual clutter.
+- **Body Scroll Lock:** Opening the navigation automatically applies the `.nav-locked` class to `<html>` and `<body>` (`overflow: hidden !important; touch-action: none;`), ensuring the page behind the menu is completely non-scrollable.
+- **Seamless Dismissal:** Closing the menu (via the close toggle, pressing `Escape`, tapping outside, or selecting any navigation link) instantly removes the lock and restores full document scrolling.
+- **Icon State & Touch Targets:** The hamburger icon animates into a close "X" when open (`aria-expanded="true"`), and navigation links are rendered as touch-friendly cards (minimum 52px height) with active emerald state indicators.
+
+### 2. Automatic Virtual Keyboard Dismissal on Scroll
+- **Auto-Blur on Scroll:** On all calculator pages, when a student is typing in any numeric or text input and scrolls or drags the screen to view results, the focused input automatically loses focus (`blur()`), dismissing the mobile virtual keyboard and freeing up screen real estate.
+- **Intentional Drag Detection:** The listener measures touch drag distance (`delta > 10px`), ensuring that subtle finger taps or steady touches do not trigger accidental dismissals.
+- **Grace Period for Native Auto-Scroll:** Includes a 400ms buffer following initial focus, ensuring the browser's native programmatic centering scroll does not prematurely dismiss the active keyboard when an input is first tapped.
+- **Shared Implementation:** Implemented centrally in `assets/js/main.js` to ensure consistent, zero-dependency behavior across all 4 calculators without code duplication.
+
 ## Mobile & Accessibility
 
 The entire portal has been audited and polished for mobile responsiveness, touch ergonomics, and WCAG 2.1 AA accessibility standards:
@@ -311,6 +327,11 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Configured Google Analytics (GA4) with live Measurement ID `G-99GKCS44FT` across all 9 pages.
   - Updated `sitemap.xml` to include all 9 site URLs with appropriate change frequencies and priorities.
   - Documented setup instructions and credentials placeholders in `README.md`.
+- **Step 11 (Mobile UX Enhancements):** **DONE**
+  - Upgraded mobile hamburger navigation (< 820px) to a true full-screen overlay (`100dvh`) with body scroll locking (`.nav-locked`).
+  - Added multi-path menu dismissal (close toggle, Escape key, backdrop touch, and nav link routing).
+  - Implemented shared mobile virtual keyboard dismissal on scroll/touch drag with a 400ms focus grace period across all calculator pages.
 - **Monetization & Ad Units:**
   - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 4 calculator pages with reserved layout spacing.
   - They are intentionally invisible (no background, borders, or placeholder text) to ensure a clean student experience until an approved Google AdSense publisher ID and live ad unit tags are integrated.
+
