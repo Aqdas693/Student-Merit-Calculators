@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MDCAT Merit Calculator 2026 | PMDC MBBS BDS Aggregate</title>
-  <meta name="description" content="Calculate your official PM&DC MDCAT medical and dental college admission merit. Instant aggregate percentage using Matric (10%), FSc (40%), and MDCAT (50%).">
+  <title>NUMS Merit Calculator 2026 | Army Medical College (AMC) Aggregate</title>
+  <meta name="description" content="Calculate your NUMS admission merit aggregate for Army Medical College (AMC) and NUMS-affiliated medical colleges. Instant calculation with Matric (10%), FSc (40%), and NUMS Test (50% out of 200).">
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-99GKCS44FT"></script>
@@ -17,22 +17,22 @@
   </script>
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://student-merit-calculators.vercel.app/calculators/mdcat-merit/index.html">
+  <link rel="canonical" href="https://student-merit-calculators.vercel.app/calculators/nums-merit/index.html">
 
   <!-- Open Graph / WhatsApp / Facebook Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PakStudentTools">
-  <meta property="og:title" content="MDCAT Merit Calculator 2026 | PMDC MBBS BDS Aggregate">
-  <meta property="og:description" content="Calculate your official PM&DC MDCAT medical and dental college admission merit. Instant aggregate percentage using Matric (10%), FSc (40%), and MDCAT (50%).">
-  <meta property="og:url" content="https://student-merit-calculators.vercel.app/calculators/mdcat-merit/index.html">
+  <meta property="og:title" content="NUMS Merit Calculator 2026 | Army Medical College (AMC) Aggregate">
+  <meta property="og:description" content="Calculate your NUMS admission merit aggregate for Army Medical College (AMC) and NUMS-affiliated medical colleges. Instant calculation with Matric (10%), FSc (40%), and NUMS Test (50% out of 200).">
+  <meta property="og:url" content="https://student-merit-calculators.vercel.app/calculators/nums-merit/index.html">
   <meta property="og:image" content="https://student-merit-calculators.vercel.app/assets/images/og-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MDCAT Merit Calculator 2026 | PMDC MBBS BDS Aggregate">
-  <meta name="twitter:description" content="Calculate your official PM&DC MDCAT medical and dental college admission merit. Instant aggregate percentage using Matric (10%), FSc (40%), and MDCAT (50%).">
+  <meta name="twitter:title" content="NUMS Merit Calculator 2026 | Army Medical College (AMC) Aggregate">
+  <meta name="twitter:description" content="Calculate your NUMS admission merit aggregate for Army Medical College (AMC) and NUMS-affiliated medical colleges. Instant calculation with Matric (10%), FSc (40%), and NUMS Test (50% out of 200).">
   <meta name="twitter:image" content="https://student-merit-calculators.vercel.app/assets/images/og-cover.png">
 
   <!-- Schema.org WebApplication Structured Data -->
@@ -40,9 +40,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "MDCAT Merit Calculator",
-    "url": "https://student-merit-calculators.vercel.app/calculators/mdcat-merit/index.html",
-    "description": "Calculate official PM&DC medical and dental college admission merit aggregate using Matric, FSc, and MDCAT scores.",
+    "name": "NUMS Merit Calculator",
+    "url": "https://student-merit-calculators.vercel.app/calculators/nums-merit/index.html",
+    "description": "Calculate official NUMS medical and dental admission merit aggregate for Army Medical College and affiliated colleges using Matric, FSc, and NUMS Entry Test scores.",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -79,10 +79,10 @@
       <nav id="site-navigation" class="site-nav" aria-label="Main Navigation">
         <a href="/">Home</a>
         <a href="/calculators/matric-fsc-aggregate/">Matric/FSc Aggregate</a>
-        <a href="/calculators/mdcat-merit/" class="active">MDCAT Merit</a>
+        <a href="/calculators/mdcat-merit/">MDCAT Merit</a>
         <a href="/calculators/ecat-merit/">ECAT Merit</a>
         <a href="/calculators/uaf-merit/">UAF Merit</a>
-        <a href="/calculators/nums-merit/">NUMS Merit</a>
+        <a href="/calculators/nums-merit/" class="active">NUMS Merit</a>
       </nav>
     </div>
   </header>
@@ -97,26 +97,26 @@
         <span class="breadcrumb-separator">/</span>
         <a href="/#calculators">Calculators</a>
         <span class="breadcrumb-separator">/</span>
-        <span>MDCAT Merit</span>
+        <span>NUMS Merit</span>
       </nav>
 
       <!-- Calculator Card -->
       <div class="calculator-card">
         <div class="calculator-header">
-          <h1 class="calculator-title">MDCAT Merit Calculator</h1>
+          <h1 class="calculator-title">NUMS Merit Calculator</h1>
           <p class="calculator-subtitle">
-            Calculate your official PM&amp;DC admission aggregate for public and private MBBS &amp; BDS colleges in Pakistan.
+            Calculate your admission aggregate for Army Medical College (AMC) and NUMS-affiliated private medical &amp; dental colleges in Pakistan.
           </p>
           <div class="weights-badge-bar">
-            <span>Official PM&amp;DC Weights:</span>
+            <span>Standard NUMS Weights:</span>
             <span class="weight-badge">Matric: 10%</span>
             <span class="weight-badge">FSc Pre-Medical: 40%</span>
-            <span class="weight-badge">MDCAT: 50% (out of 180)</span>
+            <span class="weight-badge">NUMS Entry Test: 50% (out of 200)</span>
           </div>
         </div>
 
         <!-- Calculator Form -->
-        <form id="mdcat-form" novalidate>
+        <form id="nums-form" novalidate>
           
           <!-- Section 1: Matriculation -->
           <div class="form-section">
@@ -192,33 +192,33 @@
             </div>
           </div>
 
-          <!-- Section 3: MDCAT Test Score -->
+          <!-- Section 3: NUMS Entry Test Score -->
           <div class="form-section">
-            <h2 class="form-section-title">3. MDCAT Entrance Test Score</h2>
+            <h2 class="form-section-title">3. NUMS Entry Test Score</h2>
             <div class="form-row">
               <div class="form-group">
-                <label for="mdcat-obtained" class="form-label">MDCAT Obtained Score (out of 180)</label>
+                <label for="nums-obtained" class="form-label">NUMS Obtained Score (out of 200)</label>
                 <input 
                   type="number" 
-                  id="mdcat-obtained" 
+                  id="nums-obtained" 
                   class="form-input" 
-                  placeholder="e.g. 155" 
+                  placeholder="e.g. 165" 
                   min="0" 
-                  max="180" 
+                  max="200" 
                   step="any"
                   inputmode="decimal"
-                  aria-describedby="error-mdcat-obtained"
+                  aria-describedby="error-nums-obtained"
                   required
                 >
-                <span id="error-mdcat-obtained" class="error-text" role="alert"></span>
+                <span id="error-nums-obtained" class="error-text" role="alert"></span>
               </div>
               <div class="form-group">
-                <label for="mdcat-total-fixed" class="form-label">MDCAT Total Test Denominator</label>
+                <label for="nums-total-fixed" class="form-label">NUMS Total Test Denominator</label>
                 <input 
                   type="text" 
-                  id="mdcat-total-fixed"
+                  id="nums-total-fixed"
                   class="form-input" 
-                  value="180 Marks (Fixed by PM&amp;DC)" 
+                  value="200 Marks (Fixed by NUMS)" 
                   readonly 
                   tabindex="-1"
                   aria-readonly="true"
@@ -238,7 +238,7 @@
 
         <!-- Result Box (Hidden until calculated) -->
         <div id="result-box" class="result-box" aria-live="polite">
-          <div class="result-header">Your Composite MDCAT Medical Merit</div>
+          <div class="result-header">Your Composite NUMS Medical Merit</div>
           <div class="result-value" id="merit-result">0.00%</div>
           
           <div class="breakdown-grid">
@@ -253,9 +253,9 @@
               <div class="breakdown-item-sub" id="breakdown-fsc-detail">0.00% score</div>
             </div>
             <div class="breakdown-item">
-              <div class="breakdown-item-title">MDCAT Contribution (50%)</div>
-              <div class="breakdown-item-value" id="breakdown-mdcat">0.00%</div>
-              <div class="breakdown-item-sub" id="breakdown-mdcat-detail">0.00% score</div>
+              <div class="breakdown-item-title">NUMS Contribution (50%)</div>
+              <div class="breakdown-item-value" id="breakdown-nums">0.00%</div>
+              <div class="breakdown-item-sub" id="breakdown-nums-detail">0.00% score</div>
             </div>
           </div>
         </div>
@@ -264,22 +264,22 @@
 
       <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
       <section class="explainer-card">
-        <h2>Understanding the PM&amp;DC MDCAT Merit Formula</h2>
+        <h2>Understanding the NUMS Medical Admission Merit Formula</h2>
         
         <p>
-          The MDCAT Merit Calculator is designed for aspiring medical and dental students seeking admission to public and private sector MBBS and BDS programs across Pakistan. Admissions are governed by the Pakistan Medical and Dental Council (PM&amp;DC) and executed provincially by examining authorities including the University of Health Sciences (UHS) in Punjab, Dow University of Health Sciences (DUHS) in Sindh, Khyber Medical University (KMU) in KPK, Bolan University of Medical &amp; Health Sciences (BUMHS) in Balochistan, and SZABMU in Islamabad.
+          The NUMS Merit Calculator helps prospective medical and dental students determine their admission aggregate for the National University of Medical Sciences (NUMS) in Rawalpindi. NUMS administers admissions for its premier constituent institution, Army Medical College (AMC), as well as numerous affiliated private medical and dental colleges across Pakistan.
         </p>
 
         <div class="formula-display">
-          Aggregate (%) = (Matric Obt ÷ Total × 10) + (FSc Obt ÷ Total × 40) + (MDCAT Obt ÷ 180 × 50)
+          Aggregate (%) = (Matric Obt ÷ Total × 10) + (FSc Obt ÷ Total × 40) + (NUMS Obt ÷ 200 × 50)
         </div>
 
         <p>
-          The official PM&amp;DC merit formula combines your academic history and entrance test achievement into a single composite percentage. Because the standard national MDCAT examination comprises 180 total marks, your score is calculated directly against this 180-mark base and weighted to represent 50% of your total admission aggregate.
+          Unlike provincial medical admissions that rely on the central PM&amp;DC MDCAT, NUMS conducts its own dedicated entrance test with distinct syllabus specifications. The standard NUMS Entry Test comprises 200 total marks (consisting of subject-based multiple-choice questions and a psychological assessment component), evaluated separately from the national 180-mark MDCAT.
         </p>
 
         <p>
-          <strong>Note on NUMS Admissions:</strong> The National University of Medical Sciences (NUMS) also follows the identical 10% Matric, 40% FSc, and 50% entry test formula for Army Medical College (AMC) and affiliated military institutions. However, the NUMS entry test is scored out of 200 marks rather than 180. To compute your aggregate for AMC and NUMS-affiliated colleges, use our dedicated <a href="/calculators/nums-merit/">NUMS Merit Calculator</a>.
+          This calculator applies the widely cited simplified admission formula: 10% Matriculation, 40% Intermediate (FSc Pre-Medical), and 50% NUMS Entry Test. Please note that while this baseline formula is standard for general estimations, NUMS may implement tiered or category-specific weightings—distinguishing open-merit seats at Army Medical College from paying or private affiliated colleges, or adjusting foreign and quota requirements. Candidates should always verify candidate seat categories and specific eligibility criteria in the official NUMS prospectus.
         </p>
       </section>
 

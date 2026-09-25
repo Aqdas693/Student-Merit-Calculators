@@ -29,7 +29,8 @@ Pakistani Student Calculator Tools is a free, mobile-optimized online utility po
 │   ├── matric-fsc-aggregate/
 │   ├── mdcat-merit/
 │   ├── ecat-merit/
-│   └── uaf-merit/
+│   ├── uaf-merit/
+│   └── nums-merit/
 ├── assets/
 │   ├── css/
 │   │   └── style.css       # Unified mobile-first design tokens and responsive layout styles
@@ -54,12 +55,14 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   - **MDCAT Merit:** `/calculators/mdcat-merit/`
   - **ECAT Merit:** `/calculators/ecat-merit/`
   - **UAF Merit:** `/calculators/uaf-merit/`
+  - **NUMS Merit:** `/calculators/nums-merit/`
 - **Hero Banner:** Introduces the portal and its focus on Pakistani educational boards and admission tests.
-- **Calculator Cards Grid:** A mobile-first responsive grid showcasing 4 dedicated calculator cards:
+- **Calculator Cards Grid:** A mobile-first responsive grid showcasing 5 dedicated calculator cards:
   1. **Matric/FSc Aggregate Calculator:** Calculates combined marks and percentage for Matric (SSC) and Intermediate (HSSC/FSc) board exams (`/calculators/matric-fsc-aggregate/`).
   2. **MDCAT Merit Calculator:** Computes medical college entrance aggregate based on official PMDC weightages (`/calculators/mdcat-merit/`).
   3. **ECAT Merit Calculator:** Determines admission aggregate for UET and public engineering universities in Pakistan (`/calculators/ecat-merit/`).
   4. **UAF Merit Calculator:** Computes official admission aggregate for University of Agriculture Faisalabad degree programs (`/calculators/uaf-merit/`).
+  5. **NUMS Merit Calculator:** Computes admission aggregate for Army Medical College (AMC) and NUMS-affiliated private medical & dental colleges (`/calculators/nums-merit/`).
 - **Monetization Slot:** Clean, responsive ad unit containers (`<aside class="ad-slot-placeholder">`) positioned beneath the calculator grid and on individual calculator pages. Containers are present in the HTML/CSS with pre-reserved layout space, but intentionally rendered invisible (borderless/transparent with no visible placeholder text) until real Google AdSense ad units are activated.
 - **Footer:** Informational links (About, Contact, Privacy, Terms), auto-updating copyright year, and official academic disclaimer.
 
@@ -142,18 +145,39 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   };
   ```
 
+### 5. NUMS Merit Calculator (`/calculators/nums-merit/`)
+- **Purpose:** Computes admission aggregate for the National University of Medical Sciences (NUMS), specifically Army Medical College (AMC) and NUMS-affiliated private medical & dental colleges in Pakistan.
+- **Formula Used:**
+  $$\text{Aggregate } (\%) = \left(\frac{\text{Matric Obtained}}{\text{Matric Total}} \times 10\right) + \left(\frac{\text{FSc Obtained}}{\text{FSc Total}} \times 40\right) + \left(\frac{\text{NUMS Obtained}}{200} \times 50\right)$$
+- **Default Weightages & Denominator:**
+  - Matriculation (SSC): **10%**
+  - FSc Pre-Medical (HSSC): **40%**
+  - NUMS Entry Test: **50%** (calculated out of a fixed denominator of **200 marks**)
+- **Where to Adjust Weighting or Test Total:**
+  To adjust weights or change the denominator if policy updates, edit `NUMS_CONFIG` at the top of [`calculators/nums-merit/calculator.js`](calculators/nums-merit/calculator.js#L18-L23):
+  ```javascript
+  const NUMS_CONFIG = {
+    matricWeight: 10,     // Edit Matric weight here
+    fscWeight: 40,        // Edit FSc Pre-Medical weight here
+    numsWeight: 50,       // Edit NUMS test weight here
+    numsTotal: 200        // Edit NUMS total test denominator here
+  };
+  ```
+
 #### Needs Verification
-None. All calculator formulas currently on the site have been verified and confirmed against their respective official regulatory bodies:
+- **NUMS Merit Calculator:**
+  - *Status:* **Needs Verification.**
+  - *Notes:* Weighting should be confirmed against NUMS's current official admission policy. This calculator uses the commonly-cited simplified formula (10% Matric, 40% FSc, 50% NUMS Entry Test out of 200). A tiered (college-type-dependent) formula may exist distinguishing constituent colleges (Army Medical College) from private affiliated colleges, paying cadet categories, and quotas, which is not accounted for yet in this version.
+
+*Verified Calculators:*
 - **Matric / FSc Aggregate:** 10/40/50 standard formula confirmed across Pakistani academic boards.
 - **MDCAT Merit:** 10/40/50 formula (MDCAT out of 180) confirmed from PM&DC official criteria.
 - **UAF Merit:** 30/30/40 formula confirmed from official UAF admission criteria on September 23, 2026.
 - **ECAT Merit:** 17/50/33 formula (ECAT out of 400) confirmed directly from official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) on September 23, 2026.
 
-*No calculators remain in "Needs Verification." All 4 calculators are fully verified and production-ready.*
-
 ## SEO
 The website is fully optimized for organic search discovery and social sharing:
-- **XML Sitemap (`/sitemap.xml`):** Comprehensive standard sitemap indexing the homepage (`1.0` priority) and all four calculator tools (`0.8` priority) with update frequency metadata.
+- **XML Sitemap (`/sitemap.xml`):** Comprehensive standard sitemap indexing the homepage (`1.0` priority) and all five calculator tools (`0.8` priority) with update frequency metadata.
 - **Robots Exclusion Standard (`/robots.txt`):** Permits crawling across all user-agents (`Allow: /`) and declares the sitemap location.
 - **Unique Meta Tags:** Every page includes distinct, keyword-focused `<title>` and `<meta name="description">` elements tailored to student search intent (e.g., "MDCAT Merit Calculator 2026", "PMDC MBBS BDS Aggregate").
 - **Open Graph & Twitter Cards:** Configured on every page (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `twitter:card`) ensuring high-fidelity link preview cards when links are shared in WhatsApp student groups, Facebook communities, and forums.
@@ -331,7 +355,14 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Upgraded mobile hamburger navigation (< 820px) to a true full-screen overlay (`100dvh`) with body scroll locking (`.nav-locked`).
   - Added multi-path menu dismissal (close toggle, Escape key, backdrop touch, and nav link routing).
   - Implemented shared mobile virtual keyboard dismissal on scroll/touch drag with a 400ms focus grace period across all calculator pages.
+- **Step 12 (NUMS Merit Calculator):** **DONE**
+  - Built standalone NUMS Merit Calculator at `/calculators/nums-merit/index.html` with configurable weights in `calculator.js`.
+  - Implemented 10% Matric + 40% FSc Pre-Medical + 50% NUMS Entry Test (out of 200) formula with validation, live error clearing, and component breakdown tiles.
+  - Added 170-word educational explainer covering Army Medical College (AMC), affiliated private medical colleges, and distinguishing the NUMS 200-mark test from the PM&DC 180-mark MDCAT.
+  - Linked NUMS calculator on homepage (card grid and top nav), all page navigation bars, and within the MDCAT explainer section.
+  - Indexed new tool in `sitemap.xml` and noted under "Needs Verification" pending confirmation of official NUMS admission criteria.
 - **Monetization & Ad Units:**
-  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 4 calculator pages with reserved layout spacing.
+  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 5 calculator pages with reserved layout spacing.
   - They are intentionally invisible (no background, borders, or placeholder text) to ensure a clean student experience until an approved Google AdSense publisher ID and live ad unit tags are integrated.
+
 
