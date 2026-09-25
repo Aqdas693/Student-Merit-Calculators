@@ -149,10 +149,11 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
 - **Purpose:** Computes admission aggregate for the National University of Medical Sciences (NUMS), specifically Army Medical College (AMC) and NUMS-affiliated private medical & dental colleges in Pakistan.
 - **Formula Used:**
   $$\text{Aggregate } (\%) = \left(\frac{\text{Matric Obtained}}{\text{Matric Total}} \times 10\right) + \left(\frac{\text{FSc Obtained}}{\text{FSc Total}} \times 40\right) + \left(\frac{\text{NUMS Obtained}}{200} \times 50\right)$$
-- **Default Weightages & Denominator:**
+- **Confirmed Weightages & Denominator:**
   - Matriculation (SSC): **10%**
   - FSc Pre-Medical (HSSC): **40%**
   - NUMS Entry Test: **50%** (calculated out of a fixed denominator of **200 marks**)
+  - *Status:* Confirmed on September 2026 as applying uniformly across NUMS's constituent (Army Medical College) and all affiliated colleges (CMH, Bahria, Fazaia, HITEC), with no college-specific tiering.
 - **Where to Adjust Weighting or Test Total:**
   To adjust weights or change the denominator if policy updates, edit `NUMS_CONFIG` at the top of [`calculators/nums-merit/calculator.js`](calculators/nums-merit/calculator.js#L18-L23):
   ```javascript
@@ -165,15 +166,14 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   ```
 
 #### Needs Verification
-- **NUMS Merit Calculator:**
-  - *Status:* **Needs Verification.**
-  - *Notes:* Weighting should be confirmed against NUMS's current official admission policy. This calculator uses the commonly-cited simplified formula (10% Matric, 40% FSc, 50% NUMS Entry Test out of 200). A tiered (college-type-dependent) formula may exist distinguishing constituent colleges (Army Medical College) from private affiliated colleges, paying cadet categories, and quotas, which is not accounted for yet in this version.
-
-*Verified Calculators:*
+None. All calculator formulas currently on the site have been verified and confirmed against their respective official regulatory bodies:
 - **Matric / FSc Aggregate:** 10/40/50 standard formula confirmed across Pakistani academic boards.
 - **MDCAT Merit:** 10/40/50 formula (MDCAT out of 180) confirmed from PM&DC official criteria.
 - **UAF Merit:** 30/30/40 formula confirmed from official UAF admission criteria on September 23, 2026.
 - **ECAT Merit:** 17/50/33 formula (ECAT out of 400) confirmed directly from official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) on September 23, 2026.
+- **NUMS Merit:** 10/40/50 formula (NUMS out of 200) confirmed on September 2026 as applying uniformly across NUMS's constituent (Army Medical College) and all affiliated colleges (CMH, Bahria, Fazaia, HITEC), with no college-specific tiering.
+
+*No calculators remain in "Needs Verification." All 5 calculators are fully verified and production-ready.*
 
 ## SEO
 The website is fully optimized for organic search discovery and social sharing:
@@ -360,7 +360,7 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Implemented 10% Matric + 40% FSc Pre-Medical + 50% NUMS Entry Test (out of 200) formula with validation, live error clearing, and component breakdown tiles.
   - Added 170-word educational explainer covering Army Medical College (AMC), affiliated private medical colleges, and distinguishing the NUMS 200-mark test from the PM&DC 180-mark MDCAT.
   - Linked NUMS calculator on homepage (card grid and top nav), all page navigation bars, and within the MDCAT explainer section.
-  - Indexed new tool in `sitemap.xml` and noted under "Needs Verification" pending confirmation of official NUMS admission criteria.
+  - Indexed new tool in `sitemap.xml` and confirmed 10/40/50 formula across constituent and affiliated colleges on September 2026 (moved out of Needs Verification).
 - **Monetization & Ad Units:**
   - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 5 calculator pages with reserved layout spacing.
   - They are intentionally invisible (no background, borders, or placeholder text) to ensure a clean student experience until an approved Google AdSense publisher ID and live ad unit tags are integrated.
