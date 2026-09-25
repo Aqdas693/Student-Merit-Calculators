@@ -10,7 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
     currentYearSpan.textContent = new Date().getFullYear();
   }
 
-  // 2. Mobile navigation toggle, full-screen overlay & body scroll lock
+  // 2. Seamless dual-environment link support (file:/// and http/https)
+  // When running locally via file://, automatically rewrites any root-relative paths
+  // to portable relative paths so local offline browsing never hits ERR_FILE_NOT_FOUND.
+  if (window.location.protocol === 'file:') {
+    const isSubdir = window.location.pathname.replace(/\\/g, '/').includes('/calculators/');
+    const prefix = isSubdir ? '../../' : '';
+    document.querySelectorAll('a[href^="/"]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href === '/') {
+        link.setAttribute('href', prefix + 'index.html');
+      } else if (href.startsWith('/calculators/')) {
+        const parts = href.split('/').filter(Boolean);
+        const calcFolder = parts[1] || '';
+        link.setAttribute('href', (isSubdir ? '../' : 'calculators/') + calcFolder + '/index.html');
+      } else if (href.startsWith('/')) {
+        link.setAttribute('href', prefix + href.substring(1));
+      }
+    });
+  }
+
+  // 3. Mobile navigation toggle, full-screen overlay & body scroll lock
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.querySelector('.site-nav');
 
