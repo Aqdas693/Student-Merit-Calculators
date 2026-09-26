@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const href = link.getAttribute('href');
       if (href === '/') {
         link.setAttribute('href', prefix + 'index.html');
+      } else if (href.startsWith('/#')) {
+        link.setAttribute('href', prefix + 'index.html' + href.substring(1));
       } else if (href.startsWith('/calculators/')) {
         const parts = href.split('/').filter(Boolean);
         const calcFolder = parts[1] || '';
@@ -103,12 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // For page navigation links, immediately release scroll lock so next page loads cleanly.
     siteNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        const href = link.getAttribute('href');
-        if (!href || href.startsWith('#')) {
-          closeNav();
-        } else {
-          unlockBodyScroll();
-          setTimeout(closeNav, 80);
+        if (siteNav.classList.contains('nav-open')) {
+          const href = link.getAttribute('href');
+          if (!href || href.startsWith('#')) {
+            closeNav();
+          } else {
+            unlockBodyScroll();
+            setTimeout(closeNav, 80);
+          }
         }
       });
     });
