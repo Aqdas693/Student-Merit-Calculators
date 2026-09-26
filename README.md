@@ -30,7 +30,8 @@ Pakistani Student Calculator Tools is a free, mobile-optimized online utility po
 │   ├── mdcat-merit/
 │   ├── ecat-merit/
 │   ├── uaf-merit/
-│   └── nums-merit/
+│   ├── nums-merit/
+│   └── cgpa-calculator/
 ├── assets/
 │   ├── css/
 │   │   └── style.css       # Unified mobile-first design tokens and responsive layout styles
@@ -56,13 +57,15 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   - **ECAT Merit:** `/calculators/ecat-merit/`
   - **UAF Merit:** `/calculators/uaf-merit/`
   - **NUMS Merit:** `/calculators/nums-merit/`
+  - **CGPA Calculator:** `/calculators/cgpa-calculator/`
 - **Hero Banner:** Introduces the portal and its focus on Pakistani educational boards and admission tests.
-- **Calculator Cards Grid:** A mobile-first responsive grid showcasing 5 dedicated calculator cards:
+- **Calculator Cards Grid:** A mobile-first responsive grid showcasing 6 dedicated calculator cards:
   1. **Matric/FSc Aggregate Calculator:** Calculates combined marks and percentage for Matric (SSC) and Intermediate (HSSC/FSc) board exams (`/calculators/matric-fsc-aggregate/`).
   2. **MDCAT Merit Calculator:** Computes medical college entrance aggregate based on official PMDC weightages (`/calculators/mdcat-merit/`).
   3. **ECAT Merit Calculator:** Determines admission aggregate for UET and public engineering universities in Pakistan (`/calculators/ecat-merit/`).
   4. **UAF Merit Calculator:** Computes official admission aggregate for University of Agriculture Faisalabad degree programs (`/calculators/uaf-merit/`).
   5. **NUMS Merit Calculator:** Computes admission aggregate for Army Medical College (AMC) and NUMS-affiliated private medical & dental colleges (`/calculators/nums-merit/`).
+  6. **Semester CGPA Calculator:** Computes cumulative GPA across semesters using credit-hour-weighted HEC standard grading guidelines (`/calculators/cgpa-calculator/`).
 - **Monetization Slot:** Clean, responsive ad unit containers (`<aside class="ad-slot-placeholder">`) positioned beneath the calculator grid and on individual calculator pages. Containers are present in the HTML/CSS with pre-reserved layout space, but intentionally rendered invisible (borderless/transparent with no visible placeholder text) until real Google AdSense ad units are activated.
 - **Footer:** Informational links (About, Contact, Privacy, Terms), auto-updating copyright year, and official academic disclaimer.
 
@@ -165,6 +168,16 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   };
   ```
 
+### 6. Semester CGPA Calculator (`/calculators/cgpa-calculator/`)
+- **Purpose:** Computes cumulative Grade Point Average across multiple academic terms using the standard credit-hour-weighted average compliant with HEC Pakistan guidelines.
+- **Formula Used:**
+  $$\text{CGPA} = \frac{\sum (\text{Semester GPA}_i \times \text{Credit Hours}_i)}{\sum \text{Credit Hours}_i} = \frac{\text{Total Quality Points}}{\text{Total Credit Hours}}$$
+- **Key Features:**
+  - **Dynamic Rows:** Pre-populates with 2 default semesters. Users can add unlimited semesters using the "+ Add Another Semester" button and remove any semester (with safety constraint preventing deletion of the last remaining semester).
+  - **Inputs & Validation:** Semester GPA ($0.00 \le \text{GPA} \le 4.00$, step $0.01$) and Credit Hours (positive whole integers $\ge 1$).
+  - **Component Breakdown:** Displays composite CGPA (rounded to 2 decimal places), total completed credit hours, total accumulated Quality Points, and an itemized semester summary table.
+  - **Live Feedback & Reset:** Updates live as inputs are adjusted and provides a clean one-click reset restoring the 2 default rows.
+
 #### Needs Verification
 None. All calculator formulas currently on the site have been verified and confirmed against their respective official regulatory bodies:
 - **Matric / FSc Aggregate:** 10/40/50 standard formula confirmed across Pakistani academic boards.
@@ -172,14 +185,15 @@ None. All calculator formulas currently on the site have been verified and confi
 - **UAF Merit:** 30/30/40 formula confirmed from official UAF admission criteria on September 23, 2026.
 - **ECAT Merit:** 17/50/33 formula (ECAT out of 400) confirmed directly from official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) on September 23, 2026.
 - **NUMS Merit:** 10/40/50 formula (NUMS out of 200) confirmed on September 2026 as applying uniformly across NUMS's constituent (Army Medical College) and all affiliated colleges (CMH, Bahria, Fazaia, HITEC), with no college-specific tiering.
+- **Semester CGPA:** Standard HEC credit-hour-weighted Quality Point formula universally applied across Pakistani universities (NUST, FAST, UET, COMSATS, PU).
 
-*No calculators remain in "Needs Verification." All 5 calculators are fully verified and production-ready.*
+*No calculators remain in "Needs Verification." All 6 calculators are fully verified and production-ready.*
 
 ## SEO
 The website is fully optimized for organic search discovery and social sharing:
-- **XML Sitemap (`/sitemap.xml`):** Comprehensive standard sitemap indexing the homepage (`1.0` priority) and all five calculator tools (`0.8` priority) with update frequency metadata.
+- **XML Sitemap (`/sitemap.xml`):** Comprehensive standard sitemap indexing the homepage (`1.0` priority), all six calculator tools (`0.8` priority), and static compliance pages with update frequency metadata.
 - **Robots Exclusion Standard (`/robots.txt`):** Permits crawling across all user-agents (`Allow: /`) and declares the sitemap location.
-- **Unique Meta Tags:** Every page includes distinct, keyword-focused `<title>` and `<meta name="description">` elements tailored to student search intent (e.g., "MDCAT Merit Calculator 2026", "PMDC MBBS BDS Aggregate").
+- **Unique Meta Tags:** Every page includes distinct, keyword-focused `<title>` and `<meta name="description">` elements tailored to student search intent (e.g., "CGPA Calculator Pakistan", "University Semester CGPA & SGPA").
 - **Open Graph & Twitter Cards:** Configured on every page (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `twitter:card`) ensuring high-fidelity link preview cards when links are shared in WhatsApp student groups, Facebook communities, and forums.
 - **Structured Data (JSON-LD):**
   - **Homepage:** Schema.org `WebSite` entity.
@@ -361,8 +375,15 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Added 170-word educational explainer covering Army Medical College (AMC), affiliated private medical colleges, and distinguishing the NUMS 200-mark test from the PM&DC 180-mark MDCAT.
   - Linked NUMS calculator on homepage (card grid and top nav), all page navigation bars, and within the MDCAT explainer section.
   - Indexed new tool in `sitemap.xml` and confirmed 10/40/50 formula across constituent and affiliated colleges on September 2026 (moved out of Needs Verification).
+- **Step 13 (Semester CGPA Calculator):** **DONE**
+  - Built standalone Semester CGPA Calculator at `/calculators/cgpa-calculator/index.html` with credit-hour-weighted average logic in `calculator.js`.
+  - Dynamic semester row addition and removal (starting with 2 default rows, disallowing deletion of the last remaining row).
+  - Validation enforcing 0.00–4.00 GPA range and positive whole integer credit hours, with accessible `role="alert"` inline messages.
+  - Live calculations without page reload, showing composite CGPA, total credit hours, total Quality Points, and an itemized semester table.
+  - Added 209-word educational explainer detailing CGPA vs SGPA, HEC formula derivation, and institutional transcript policies.
+  - Linked across homepage (grid card and top nav), top navigation on all 10 pages across the portal, and indexed in `sitemap.xml`.
 - **Monetization & Ad Units:**
-  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 5 calculator pages with reserved layout spacing.
+  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 6 calculator pages with reserved layout spacing.
   - They are intentionally invisible (no background, borders, or placeholder text) to ensure a clean student experience until an approved Google AdSense publisher ID and live ad unit tags are integrated.
 
 

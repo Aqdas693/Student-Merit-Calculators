@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGPA Calculator Pakistan | University Semester CGPA & SGPA Calculator</title>
+  <meta name="description" content="Calculate your university semester CGPA and SGPA with our free CGPA Calculator for Pakistani universities. HEC compliant credit-hour-weighted formula for NUST, FAST, UET, COMSATS, PU & more.">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-99GKCS44FT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-99GKCS44FT');
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://student-merit-calculators.vercel.app/calculators/cgpa-calculator/index.html">
+
+  <!-- Open Graph / WhatsApp / Facebook Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PakStudentTools">
+  <meta property="og:title" content="CGPA Calculator Pakistan | University Semester CGPA & SGPA Calculator">
+  <meta property="og:description" content="Calculate your university semester CGPA and SGPA with our free CGPA Calculator for Pakistani universities. HEC compliant credit-hour-weighted formula for NUST, FAST, UET, COMSATS, PU & more.">
+  <meta property="og:url" content="https://student-merit-calculators.vercel.app/calculators/cgpa-calculator/index.html">
+  <meta property="og:image" content="https://student-merit-calculators.vercel.app/assets/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CGPA Calculator Pakistan | University Semester CGPA & SGPA Calculator">
+  <meta name="twitter:description" content="Calculate your university semester CGPA and SGPA with our free CGPA Calculator for Pakistani universities. HEC compliant credit-hour-weighted formula for NUST, FAST, UET, COMSATS, PU & more.">
+  <meta name="twitter:image" content="https://student-merit-calculators.vercel.app/assets/images/og-cover.png">
+
+  <!-- Schema.org WebApplication Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Semester CGPA Calculator Pakistan",
+    "url": "https://student-merit-calculators.vercel.app/calculators/cgpa-calculator/index.html",
+    "description": "Calculate overall university CGPA across multiple semesters using the standard credit-hour-weighted formula compliant with HEC guidelines for Pakistani universities.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "PKR"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="../../assets/images/logo.png">
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="brand">
+        <img src="../../assets/images/logo.svg" alt="PakStudentTools Logo" class="brand-logo" width="32" height="32">
+        <span>PakStudentTools</span>
+        <span class="brand-badge">Free</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+      <nav id="site-navigation" class="site-nav" aria-label="Main Navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../matric-fsc-aggregate/index.html">Matric/FSc Aggregate</a>
+        <a href="../mdcat-merit/index.html">MDCAT Merit</a>
+        <a href="../ecat-merit/index.html">ECAT Merit</a>
+        <a href="../uaf-merit/index.html">UAF Merit</a>
+        <a href="../nums-merit/index.html">NUMS Merit</a>
+        <a href="index.html" class="active">CGPA Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-separator" aria-hidden="true">/</li>
+          <li><span>Calculators</span></li>
+          <li class="breadcrumb-separator" aria-hidden="true">/</li>
+          <li aria-current="page">Semester CGPA Calculator</li>
+        </ol>
+      </nav>
+
+      <!-- Calculator Card -->
+      <div class="calculator-card">
+        <div class="calculator-header">
+          <h1 class="calculator-title">Semester CGPA Calculator Pakistan</h1>
+          <p class="calculator-subtitle">
+            Calculate your cumulative university CGPA from semester GPAs and credit hours using standard HEC guidelines.
+          </p>
+          <div class="weights-badge-bar">
+            <span>Criteria:</span>
+            <span class="weight-badge">Credit-Weighted Quality Points</span>
+            <span class="weight-badge">Standard 4.0 GPA Scale</span>
+            <span class="weight-badge">Dynamic Multi-Semester</span>
+          </div>
+        </div>
+
+        <form id="cgpa-form" novalidate>
+          <!-- Dynamic Semester Cards Container -->
+          <div id="semesters-container" aria-live="polite">
+            <!-- Dynamically populated with semester cards -->
+          </div>
+
+          <!-- Add Semester Button -->
+          <button type="button" id="add-semester-btn" class="btn-add-semester">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            + Add Another Semester
+          </button>
+
+          <!-- Action Buttons -->
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="calc-btn">
+              Calculate Overall CGPA
+            </button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">
+              Reset Form
+            </button>
+          </div>
+        </form>
+
+        <!-- Result Box (Hidden by default, shown via JS) -->
+        <div id="result-box" class="result-box" aria-live="polite">
+          <div class="result-header">Your Cumulative Grade Point Average</div>
+          <div class="result-value" id="cgpa-result">0.00</div>
+          
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Total Credit Hours</div>
+              <div class="breakdown-item-value" id="total-credits">0</div>
+              <div class="breakdown-item-sub">Completed course credits</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Total Quality Points</div>
+              <div class="breakdown-item-value" id="total-qp">0.00</div>
+              <div class="breakdown-item-sub">&sum; (GPA &times; Credit Hours)</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Semesters Included</div>
+              <div class="breakdown-item-value" id="semesters-count">0</div>
+              <div class="breakdown-item-sub">Terms in calculation</div>
+            </div>
+          </div>
+
+          <!-- Per-Semester Breakdown Details -->
+          <div id="semester-breakdown-details"></div>
+        </div>
+
+      </div>
+
+      <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
+      <section class="explainer-card">
+        <h2>Understanding the Semester CGPA Calculation in Pakistani Universities</h2>
+        
+        <p>
+          Cumulative Grade Point Average (CGPA) represents the overall academic performance of a university student across multiple semesters. In Pakistani higher education institutions governed by the Higher Education Commission (HEC), students receive a Semester Grade Point Average (SGPA) at the end of each term, reflecting their performance in courses completed during that specific session. CGPA, by contrast, is the cumulative credit-hour-weighted average of all semesters completed to date.
+        </p>
+
+        <div class="formula-display">
+          CGPA = &sum;(Semester GPA &times; Semester Credit Hours) &divide; Total Credit Hours
+        </div>
+
+        <p>
+          A simple unweighted average of your semester GPAs is inaccurate because academic semesters frequently carry unequal course loads. HEC grading guidelines mandate that each semester's contribution must be weighted proportionally according to its total credit hours. Multiplying each semester's GPA by its credit hours yields the Quality Points (QP) earned in that term. Dividing total accumulated Quality Points by total completed credit hours produces your true composite CGPA.
+        </p>
+
+        <p>
+          While this credit-weighted method is universally standardized across Pakistani universities—including NUST, FAST-NUCES, UET, COMSATS, GIKI, and Punjab University—specific institutional transcript policies can influence final figures. If you have repeated courses, availed grade replacement or academic forgiveness policies, or transferred credits from another institution, your official university registrar's calculations may vary. Always cross-check with your official student portal or controller of examinations.
+        </p>
+      </section>
+
+      <!-- Responsive Ad Unit Container (Reserved for future AdSense / Ad Unit integration) -->
+      <aside class="ad-slot-placeholder" aria-hidden="true"></aside>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p>&copy; <span id="current-year">2026</span> PakStudentTools. All rights reserved.</p>
+          <p class="footer-disclaimer">
+            Formulas and criteria follow current official Pakistani board (BISE), PMDC, and HEC guidelines. Always cross-check with official admission prospectus notices.
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+          <a href="../../privacy-policy.html">Privacy Policy</a>
+          <a href="../../terms.html">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="calculator.js" defer></script>
+</body>
+</html>
