@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CGPA Calculator Pakistan | University Semester CGPA & SGPA Calculator</title>
-  <meta name="description" content="Calculate your university semester CGPA and SGPA with our free CGPA Calculator for Pakistani universities. HEC compliant credit-hour-weighted formula for NUST, FAST, UET, COMSATS, PU & more.">
+  <title>UAF GPA Calculator | Quality Points &amp; Semester CGPA Calculator (Raw Marks)</title>
+  <meta name="description" content="Calculate your University of Agriculture Faisalabad (UAF) semester GPA and CGPA from raw marks. Exact official UAF Quality Point Schedule lookup table for 1 to 5 credit hours.">
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-99GKCS44FT"></script>
@@ -17,22 +17,22 @@
   </script>
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://student-merit-calculators.vercel.app/calculators/cgpa-calculator/index.html">
+  <link rel="canonical" href="https://student-merit-calculators.vercel.app/calculators/uaf-gpa-calculator/">
 
   <!-- Open Graph / WhatsApp / Facebook Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PakStudentTools">
-  <meta property="og:title" content="CGPA Calculator Pakistan | University Semester CGPA & SGPA Calculator">
-  <meta property="og:description" content="Calculate your university semester CGPA and SGPA with our free CGPA Calculator for Pakistani universities. HEC compliant credit-hour-weighted formula for NUST, FAST, UET, COMSATS, PU & more.">
-  <meta property="og:url" content="https://student-merit-calculators.vercel.app/calculators/cgpa-calculator/index.html">
+  <meta property="og:title" content="UAF GPA Calculator | Quality Points &amp; Semester CGPA Calculator">
+  <meta property="og:description" content="Calculate your University of Agriculture Faisalabad (UAF) semester GPA and CGPA from raw marks. Exact official UAF Quality Point Schedule lookup table for 1 to 5 credit hours.">
+  <meta property="og:url" content="https://student-merit-calculators.vercel.app/calculators/uaf-gpa-calculator/">
   <meta property="og:image" content="https://student-merit-calculators.vercel.app/assets/images/og-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CGPA Calculator Pakistan | University Semester CGPA & SGPA Calculator">
-  <meta name="twitter:description" content="Calculate your university semester CGPA and SGPA with our free CGPA Calculator for Pakistani universities. HEC compliant credit-hour-weighted formula for NUST, FAST, UET, COMSATS, PU & more.">
+  <meta name="twitter:title" content="UAF GPA Calculator | Quality Points &amp; Semester CGPA Calculator">
+  <meta name="twitter:description" content="Calculate your University of Agriculture Faisalabad (UAF) semester GPA and CGPA from raw marks. Exact official UAF Quality Point Schedule lookup table for 1 to 5 credit hours.">
   <meta name="twitter:image" content="https://student-merit-calculators.vercel.app/assets/images/og-cover.png">
 
   <!-- Schema.org WebApplication Structured Data -->
@@ -40,9 +40,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Semester CGPA Calculator Pakistan",
-    "url": "https://student-merit-calculators.vercel.app/calculators/cgpa-calculator/index.html",
-    "description": "Calculate overall university CGPA across multiple semesters using the standard credit-hour-weighted formula compliant with HEC guidelines for Pakistani universities.",
+    "name": "UAF GPA & Quality Points Calculator",
+    "url": "https://student-merit-calculators.vercel.app/calculators/uaf-gpa-calculator/",
+    "description": "Calculate semester GPA and CGPA from raw marks using the official University of Agriculture Faisalabad Quality Points lookup schedule across 1 to 5 credit hour courses.",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -82,9 +82,9 @@
         <a href="/calculators/mdcat-merit/">MDCAT Merit</a>
         <a href="/calculators/ecat-merit/">ECAT Merit</a>
         <a href="/calculators/uaf-merit/">UAF Merit</a>
-        <a href="/calculators/uaf-gpa-calculator/">UAF GPA</a>
+        <a href="/calculators/uaf-gpa-calculator/" class="active">UAF GPA</a>
         <a href="/calculators/nums-merit/">NUMS Merit</a>
-        <a href="/calculators/cgpa-calculator/" class="active">CGPA Calculator</a>
+        <a href="/calculators/cgpa-calculator/">CGPA Calculator</a>
       </nav>
     </div>
   </header>
@@ -100,44 +100,56 @@
           <li class="breadcrumb-separator" aria-hidden="true">/</li>
           <li><a href="/#calculators">Calculators</a></li>
           <li class="breadcrumb-separator" aria-hidden="true">/</li>
-          <li aria-current="page">Semester CGPA Calculator</li>
+          <li aria-current="page">UAF GPA &amp; CGPA Calculator</li>
         </ol>
       </nav>
 
       <!-- Calculator Card -->
       <div class="calculator-card">
         <div class="calculator-header">
-          <h1 class="calculator-title">Semester CGPA Calculator Pakistan</h1>
+          <h1 class="calculator-title">UAF GPA &amp; CGPA Calculator (From Marks)</h1>
           <p class="calculator-subtitle">
-            Calculate your cumulative university CGPA from semester GPAs and credit hours using standard HEC guidelines.
+            Calculate your semester GPA from course marks using the official University of Agriculture Faisalabad Quality Point Schedule.
           </p>
           <div class="weights-badge-bar">
             <span>Criteria:</span>
-            <span class="weight-badge">Credit-Weighted Quality Points</span>
-            <span class="weight-badge">Standard 4.0 GPA Scale</span>
-            <span class="weight-badge">Dynamic Multi-Semester</span>
+            <span class="weight-badge">Official UAF Quality Points Table</span>
+            <span class="weight-badge">1 to 5 Credit Hour Courses</span>
+            <span class="weight-badge">Exact Non-Approximated Scale</span>
           </div>
         </div>
 
-        <form id="cgpa-form" novalidate>
-          <!-- Dynamic Semester Cards Container -->
-          <div id="semesters-container" aria-live="polite">
-            <!-- Dynamically populated with semester cards -->
+        <!-- Distinct Purpose Note Banner -->
+        <div class="notice-banner" role="note">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <div>
+            <strong>Enrolled Student Notice:</strong> This calculator computes semester and cumulative GPA from course marks. If you are an admission candidate calculating your entry merit, please use our <a href="/calculators/uaf-merit/">UAF Merit Calculator (Admission)</a>.
+          </div>
+        </div>
+
+        <form id="uaf-gpa-form" novalidate>
+          <!-- Dynamic Courses Container -->
+          <div id="courses-container" aria-live="polite">
+            <!-- Dynamically populated with course cards -->
           </div>
 
-          <!-- Add Semester Button -->
-          <button type="button" id="add-semester-btn" class="btn-add-semester">
+          <!-- Add Course Button -->
+          <button type="button" id="add-course-btn" class="btn-add-course">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-            + Add Another Semester
+            + Add Another Course
           </button>
 
           <!-- Action Buttons -->
           <div class="btn-group">
             <button type="submit" class="btn btn-primary" id="calc-btn">
-              Calculate Overall CGPA
+              Calculate Semester GPA
             </button>
             <button type="button" class="btn btn-secondary" id="reset-btn">
               Reset Form
@@ -147,51 +159,51 @@
 
         <!-- Result Box (Hidden by default, shown via JS) -->
         <div id="result-box" class="result-box" aria-live="polite">
-          <div class="result-header">Your Cumulative Grade Point Average</div>
-          <div class="result-value" id="cgpa-result">0.00</div>
+          <div class="result-header">Your UAF Semester GPA</div>
+          <div class="result-value" id="gpa-result">0.00</div>
           
           <div class="breakdown-grid">
             <div class="breakdown-item">
-              <div class="breakdown-item-title">Total Credit Hours</div>
-              <div class="breakdown-item-value" id="total-credits">0</div>
-              <div class="breakdown-item-sub">Completed course credits</div>
-            </div>
-            <div class="breakdown-item">
               <div class="breakdown-item-title">Total Quality Points</div>
               <div class="breakdown-item-value" id="total-qp">0.00</div>
-              <div class="breakdown-item-sub">&sum; (GPA &times; Credit Hours)</div>
+              <div class="breakdown-item-sub">Sum of all earned QP</div>
             </div>
             <div class="breakdown-item">
-              <div class="breakdown-item-title">Semesters Included</div>
-              <div class="breakdown-item-value" id="semesters-count">0</div>
-              <div class="breakdown-item-sub">Terms in calculation</div>
+              <div class="breakdown-item-title">Total Credit Hours</div>
+              <div class="breakdown-item-value" id="total-credits">0</div>
+              <div class="breakdown-item-sub">Sum of enrolled credits</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item-title">Courses Evaluated</div>
+              <div class="breakdown-item-value" id="courses-count">0</div>
+              <div class="breakdown-item-sub">Subjects in calculation</div>
             </div>
           </div>
 
-          <!-- Per-Semester Breakdown Details -->
-          <div id="semester-breakdown-details"></div>
+          <!-- Per-Course Breakdown Details -->
+          <div id="course-breakdown-details"></div>
         </div>
 
       </div>
 
       <!-- Explainer Section for SEO & Educational Context (150-250 words) -->
       <section class="explainer-card">
-        <h2>Understanding the Semester CGPA Calculation in Pakistani Universities</h2>
+        <h2>Understanding the UAF Quality Points &amp; GPA Calculation System</h2>
         
         <p>
-          Cumulative Grade Point Average (CGPA) represents the overall academic performance of a university student across multiple semesters. In Pakistani higher education institutions governed by the Higher Education Commission (HEC), students receive a Semester Grade Point Average (SGPA) at the end of each term, reflecting their performance in courses completed during that specific session. CGPA, by contrast, is the cumulative credit-hour-weighted average of all semesters completed to date.
+          The University of Agriculture Faisalabad (UAF) utilizes a unique, standardized Quality Points system to evaluate undergraduate and postgraduate academic performance. Unlike institutions that compute Grade Point Average (GPA) through a straight percentage formula or simple letter grades, UAF assigns Quality Points directly based on a student's raw obtained marks and the credit hour weight of each individual course.
         </p>
 
         <div class="formula-display">
-          CGPA = &sum;(Semester GPA &times; Semester Credit Hours) &divide; Total Credit Hours
+          Semester GPA = (Total Quality Points Earned) &divide; (Total Course Credit Hours)
         </div>
 
         <p>
-          A simple unweighted average of your semester GPAs is inaccurate because academic semesters frequently carry unequal course loads. HEC grading guidelines mandate that each semester's contribution must be weighted proportionally according to its total credit hours. Multiplying each semester's GPA by its credit hours yields the Quality Points (QP) earned in that term. Dividing total accumulated Quality Points by total completed credit hours produces your true composite CGPA.
+          Every course at UAF is evaluated out of a maximum mark proportional to its credit hours (20 marks per credit hour: 1 Cr = 20, 2 Cr = 40, 3 Cr = 60, 4 Cr = 80, and 5 Cr = 100). The official UAF Quality Point Schedule maps obtained marks within each tier to discrete Quality Points. Marks falling below the minimum passing threshold (e.g., under 40% of maximum marks) yield 0.00 Quality Points (F grade). This calculator incorporates the exact official UAF lookup table rather than a mathematical approximation, ensuring that your computed semester GPA and cumulative CGPA match your official university transcript.
         </p>
 
         <p>
-          While this credit-weighted method is universally standardized across Pakistani universities—including NUST, FAST-NUCES, UET, COMSATS, GIKI, and Punjab University—specific institutional transcript policies can influence final figures. If you have repeated courses, availed grade replacement or academic forgiveness policies, or transferred credits from another institution, your official university registrar's calculations may vary. Always cross-check with your official student portal or controller of examinations.
+          <strong>Looking for Admission Merit?</strong> Please note that this calculator computes semester and cumulative GPA for enrolled university students. If you are an applicant seeking admission to UAF undergraduate programs based on Matric, Intermediate, and Entrance Test scores, please use our dedicated <a href="/calculators/uaf-merit/">UAF Merit Calculator</a>.
         </p>
       </section>
 

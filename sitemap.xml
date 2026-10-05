@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://student-merit-calculators.vercel.app/calculators/uaf-gpa-calculator/index.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://student-merit-calculators.vercel.app/calculators/nums-merit/index.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>

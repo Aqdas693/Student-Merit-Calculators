@@ -23,13 +23,14 @@ Pakistani Student Calculator Tools is a free, mobile-optimized online utility po
 ├── privacy-policy.html     # Plain-language privacy policy covering client-side calculations & cookies
 ├── terms.html              # Terms of Use, estimation disclaimers, and liability boundaries
 ├── robots.txt              # Search engine crawler permissions and sitemap reference
-├── sitemap.xml             # XML sitemap indexing all 9 static pages
+├── sitemap.xml             # XML sitemap indexing all 10 static pages
 ├── README.md               # Project documentation, specifications, and run instructions
 ├── calculators/            # Directory reserved for dedicated calculator tools (one subfolder per tool)
 │   ├── matric-fsc-aggregate/
 │   ├── mdcat-merit/
 │   ├── ecat-merit/
 │   ├── uaf-merit/
+│   ├── uaf-gpa-calculator/
 │   ├── nums-merit/
 │   └── cgpa-calculator/
 ├── assets/
@@ -56,16 +57,18 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   - **MDCAT Merit:** `/calculators/mdcat-merit/`
   - **ECAT Merit:** `/calculators/ecat-merit/`
   - **UAF Merit:** `/calculators/uaf-merit/`
+  - **UAF GPA:** `/calculators/uaf-gpa-calculator/`
   - **NUMS Merit:** `/calculators/nums-merit/`
   - **CGPA Calculator:** `/calculators/cgpa-calculator/`
 - **Hero Banner:** Introduces the portal and its focus on Pakistani educational boards and admission tests.
-- **Calculator Cards Grid:** A mobile-first responsive grid showcasing 6 dedicated calculator cards:
+- **Calculator Cards Grid:** A mobile-first responsive grid showcasing 7 dedicated calculator cards:
   1. **Matric/FSc Aggregate Calculator:** Calculates combined marks and percentage for Matric (SSC) and Intermediate (HSSC/FSc) board exams (`/calculators/matric-fsc-aggregate/`).
   2. **MDCAT Merit Calculator:** Computes medical college entrance aggregate based on official PMDC weightages (`/calculators/mdcat-merit/`).
   3. **ECAT Merit Calculator:** Determines admission aggregate for UET and public engineering universities in Pakistan (`/calculators/ecat-merit/`).
   4. **UAF Merit Calculator:** Computes official admission aggregate for University of Agriculture Faisalabad degree programs (`/calculators/uaf-merit/`).
   5. **NUMS Merit Calculator:** Computes admission aggregate for Army Medical College (AMC) and NUMS-affiliated private medical & dental colleges (`/calculators/nums-merit/`).
   6. **Semester CGPA Calculator:** Computes cumulative GPA across semesters using credit-hour-weighted HEC standard grading guidelines (`/calculators/cgpa-calculator/`).
+  7. **UAF GPA & CGPA Calculator:** Computes semester GPA and cumulative CGPA from raw marks using the official UAF Quality Point Schedule (`/calculators/uaf-gpa-calculator/`).
 - **Monetization Slot:** Clean, responsive ad unit containers (`<aside class="ad-slot-placeholder">`) positioned beneath the calculator grid and on individual calculator pages. Containers are present in the HTML/CSS with pre-reserved layout space, but intentionally rendered invisible (borderless/transparent with no visible placeholder text) until real Google AdSense ad units are activated.
 - **Footer:** Informational links (About, Contact, Privacy, Terms), auto-updating copyright year, and official academic disclaimer.
 
@@ -178,6 +181,23 @@ The homepage (`index.html`) serves as the central hub connecting all calculators
   - **Component Breakdown:** Displays composite CGPA (rounded to 2 decimal places), total completed credit hours, total accumulated Quality Points, and an itemized semester summary table.
   - **Live Feedback & Reset:** Updates live as inputs are adjusted and provides a clean one-click reset restoring the 2 default rows.
 
+### 7. UAF GPA & CGPA Calculator (`/calculators/uaf-gpa-calculator/`)
+- **Purpose:** Computes semester Grade Point Average (GPA) and cumulative CGPA from raw course marks for enrolled students at the University of Agriculture Faisalabad (UAF) using the official UAF Quality Point Schedule.
+- **Formula Used:**
+  $$\text{GPA} = \frac{\sum \text{Quality Points Earned}}{\sum \text{Course Credit Hours}}$$
+- **Official Quality Point Lookup Table (Exact Schedule):**
+  - **1 Credit Hour (Max 20 Marks):** 8=1.00, 9=1.50, 10=2.00, 11=2.33, 12=2.67, 13=3.00, 14=3.33, 15=3.67, 16–20=4.00
+  - **2 Credit Hours (Max 40 Marks):** 16=2.00, 17=2.50, 18=3.00, 19=3.50, 20=4.00, 21=4.33, 22=4.67, 23=5.00, 24=5.33, 25=5.67, 26=6.00, 27=6.33, 28=6.67, 29=7.00, 30=7.33, 31=7.67, 32–40=8.00
+  - **3 Credit Hours (Max 60 Marks):** 24=3.00, 25=3.50, 26=4.00, 27=4.50, 28=5.00, 29=5.50, 30=6.00, 31=6.33, 32=6.67, 33=7.00, 34=7.33, 35=7.67, 36=8.00, 37=8.33, 38=8.67, 39=9.00, 40=9.33, 41=9.67, 42=10.00, 43=10.33, 44=10.67, 45=11.00, 46=11.33, 47=11.67, 48–60=12.00
+  - **4 Credit Hours (Max 80 Marks):** 32=4.00, 33=4.50, 34=5.00, 35=5.50, 36=6.00, 37=6.50, 38=7.00, 39=7.50, 40=8.00, 41=8.33, 42=8.67, 43=9.00, 44=9.33, 45=9.67, 46=10.00, 47=10.33, 48=10.67, 49=11.00, 50=11.33, 51=11.67, 52=12.00, 53=12.33, 54=12.67, 55=13.00, 56=13.33, 57=13.67, 58=14.00, 59=14.33, 60=14.67, 61=15.00, 62=15.33, 63=15.67, 64–80=16.00
+  - **5 Credit Hours (Max 100 Marks):** 40=5.00, 41=5.50, 42=6.00, 43=6.50, 44=7.00, 45=7.50, 46=8.00, 47=8.50, 48=9.00, 49=9.50, 50=10.00, 51=10.33, 52=10.67, 53=11.00, 54=11.33, 55=11.67, 56=12.00, 57=12.33, 58=12.67, 59=13.00, 60=13.33, 61=13.67, 62=14.00, 63=14.33, 64=14.67, 65=15.00, 66=15.33, 67=15.67, 68=16.00, 69=16.33, 70=16.67, 71=17.00, 72=17.33, 73=17.67, 74=18.00, 75=18.33, 76=18.67, 77=19.00, 78=19.33, 79=19.67, 80–100=20.00
+  - **Failing Marks:** Any mark below the minimum threshold (e.g., <8 in 1 Cr, <16 in 2 Cr, <24 in 3 Cr, <32 in 4 Cr, <40 in 5 Cr) yields **0.00 Quality Points (Fail)**.
+- **Key Features:**
+  - **Dynamic Course Rows:** Pre-populates with 3 course rows. Users can add courses with "+ Add Course" and remove rows (minimum 1 course enforced).
+  - **Dynamic Validation:** Automatically sets maximum allowable marks based on the selected credit hour value (20 for 1 Cr, up to 100 for 5 Cr).
+  - **Itemized Table Breakdown:** Displays each course's credit hours, marks obtained, looked-up Quality Points, and Pass/Fail status.
+  - **Cross-Link Banner:** Prominently links to the separate UAF Undergraduate Admission Merit Calculator for prospective applicants.
+
 #### Needs Verification
 None. All calculator formulas currently on the site have been verified and confirmed against their respective official regulatory bodies:
 - **Matric / FSc Aggregate:** 10/40/50 standard formula confirmed across Pakistani academic boards.
@@ -186,8 +206,9 @@ None. All calculator formulas currently on the site have been verified and confi
 - **ECAT Merit:** 17/50/33 formula (ECAT out of 400) confirmed directly from official UET admission policy on [ecat.uet.edu.pk](https://ecat.uet.edu.pk) on September 23, 2026.
 - **NUMS Merit:** 10/40/50 formula (NUMS out of 200) confirmed on September 2026 as applying uniformly across NUMS's constituent (Army Medical College) and all affiliated colleges (CMH, Bahria, Fazaia, HITEC), with no college-specific tiering.
 - **Semester CGPA:** Standard HEC credit-hour-weighted Quality Point formula universally applied across Pakistani universities (NUST, FAST, UET, COMSATS, PU).
+- **UAF GPA & CGPA:** Transcribed directly from the official UAF Quality Point Schedule and Examination Regulations. Note: because university academic council policies may update periodically, students should periodically cross-reference against their official semester result notification from the Controller of Examinations.
 
-*No calculators remain in "Needs Verification." All 6 calculators are fully verified and production-ready.*
+*No calculators remain in "Needs Verification." All 7 calculators are fully verified and production-ready.*
 
 ## SEO
 The website is fully optimized for organic search discovery and social sharing:
@@ -382,8 +403,15 @@ If using VS Code or another IDE, right-click `index.html` and select **"Open wit
   - Live calculations without page reload, showing composite CGPA, total credit hours, total Quality Points, and an itemized semester table.
   - Added 209-word educational explainer detailing CGPA vs SGPA, HEC formula derivation, and institutional transcript policies.
   - Linked across homepage (grid card and top nav), top navigation on all 10 pages across the portal, and indexed in `sitemap.xml`.
+- **Step 14 (UAF GPA & CGPA Calculator from Raw Marks):** **DONE**
+  - Built dedicated UAF GPA & CGPA Calculator at `/calculators/uaf-gpa-calculator/index.html` using the exact official UAF Quality Points Schedule (1–5 credit hours).
+  - Implemented exact lookup data structure in `calculator.js` (no calculated approximations) mapping marks to official quality points, including failing mark (< 40% / minimum threshold) handling yielding 0.00 QP.
+  - Built responsive, dynamic course cards with "+ Add Course" and removal features, dynamically clamping maximum permissible marks based on selected credit hours.
+  - Live calculations computing composite GPA ($\text{GPA} = \frac{\sum \text{QP}}{\sum \text{Cr}}$), total credits, total Quality Points, and an itemized course summary table.
+  - Added 217-word SEO explainer detailing UAF's unique Quality Points system, grading scale differences, and cross-linking to the separate UAF Undergraduate Admission Merit Calculator.
+  - Added new homepage card, updated navigation bar across all 11 HTML pages, updated `sitemap.xml`, and fully documented in `README.md`.
 - **Monetization & Ad Units:**
-  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 6 calculator pages with reserved layout spacing.
+  - Ad slot containers (`.ad-slot-placeholder`) are structured in the HTML and CSS across the homepage and all 7 calculator pages with reserved layout spacing.
   - They are intentionally invisible (no background, borders, or placeholder text) to ensure a clean student experience until an approved Google AdSense publisher ID and live ad unit tags are integrated.
 
 
